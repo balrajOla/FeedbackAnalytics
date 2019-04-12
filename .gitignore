@@ -1,3 +1,5 @@
 .DS_Store
 /Pods
 /Podfile.lock
+*.xcuserstate
+/FeedbackAnalytics.xcworkspace/xcuserdata/balrajsingh.xcuserdatad/UserInterfaceState.xcuserstate
