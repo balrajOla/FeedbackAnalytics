@@ -6,5 +6,6 @@ target 'FeedbackAnalytics' do
   use_frameworks!
 
   # Pods for FeedbackAnalytics
-
+  pod 'Alamofire'
+  pod 'PromiseKit'
 end
