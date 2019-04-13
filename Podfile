@@ -8,4 +8,5 @@ target 'FeedbackAnalytics' do
   # Pods for FeedbackAnalytics
   pod 'Alamofire'
   pod 'PromiseKit', '6.8.2'
+  
 end
