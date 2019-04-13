@@ -8,8 +8,14 @@
 
 import Foundation
 
+public enum FACacheError: Error {
+  case noValueFound
+}
+
 public final class FACache {
   private let cache = NSCache<NSString, AnyObject>()
+  
+  public static let fa_feedbackDetailsResponse = "FeedbackDetailsResponse"
   
   public init() {
   }

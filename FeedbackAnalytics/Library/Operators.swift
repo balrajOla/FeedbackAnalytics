@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 precedencegroup RightApplyPrecedence {
   associativity: right
   higherThan: AssignmentPrecedence

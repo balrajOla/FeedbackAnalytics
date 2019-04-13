@@ -17,17 +17,17 @@ enum ServiceError: Error {
 }
 
 extension Service {
-  func request(route: Route) -> Promise<String> {
+  func request(route: Route) -> Promise<Data> {
     let url = serverConfig.apiBaseUrl.appendingPathComponent(route.requestProperties.path)
       
-    return Promise<String> { seal in
+    return Promise<Data> { seal in
       Alamofire.request(url,
                         method: route.requestProperties.method,
                         parameters: route.requestProperties.query,
                         encoding: URLEncoding.default,
                         headers: nil)
         .validate(statusCode: 200..<300)
-        .responseString(completionHandler: { response in
+        .responseData(completionHandler: { response in
           switch response.result {
           case .success(let value):
             seal.fulfill(value)
