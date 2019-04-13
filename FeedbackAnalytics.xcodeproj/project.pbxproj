@@ -30,6 +30,7 @@
 		A24242C12261C69800B08683 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242B52261C69800B08683 /* Environment.swift */; };
 		A24242C32261E3F100B08683 /* FACache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242C22261E3F100B08683 /* FACache.swift */; };
 		A24242F22261EB0600B08683 /* FeedbackDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242F12261EB0600B08683 /* FeedbackDetailsResponse.swift */; };
+		A24242F4226256AA00B08683 /* Service+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242F3226256AA00B08683 /* Service+Cache.swift */; };
 		BF14005F9BDB2B1CF67C695E /* Pods_FeedbackAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C099F57498CEEC8598E43C7 /* Pods_FeedbackAnalytics.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		A24242B52261C69800B08683 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		A24242C22261E3F100B08683 /* FACache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FACache.swift; sourceTree = "<group>"; };
 		A24242F12261EB0600B08683 /* FeedbackDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailsResponse.swift; sourceTree = "<group>"; };
+		A24242F3226256AA00B08683 /* Service+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+Cache.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				A24242A02261C5F300B08683 /* Route.swift */,
 				A24242A12261C5F300B08683 /* ServerConfig.swift */,
 				A242429F2261C5F200B08683 /* Service+RequestHelper.swift */,
+				A24242F3226256AA00B08683 /* Service+Cache.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				A24242A72261C5FF00B08683 /* Service.swift in Sources */,
 				A24242A82261C5FF00B08683 /* ServiceType.swift in Sources */,
 				A24242F22261EB0600B08683 /* FeedbackDetailsResponse.swift in Sources */,
+				A24242F4226256AA00B08683 /* Service+Cache.swift in Sources */,
 				A24242B72261C69800B08683 /* Result+MapValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
