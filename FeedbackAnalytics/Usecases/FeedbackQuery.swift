@@ -36,7 +36,7 @@ public class FeedbackQuery {
     return [dateQuery, ratingQuery]
       .compactMap {$0}
       .reduce(Reader<[FeedbackItem], [FeedbackItem]> { value in value }, { (result, value) -> Reader<[FeedbackItem], [FeedbackItem]> in
-        result.map { value.run($0) }
+        result >>>= value.run
       })
   }
 }
