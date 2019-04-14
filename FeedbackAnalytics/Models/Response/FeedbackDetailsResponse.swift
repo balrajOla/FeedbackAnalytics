@@ -29,7 +29,7 @@ public struct Item: Codable {
   public let host: URL
   public let computedBrowser: ComputedBrowser
   public let tags: [String]
-  public let creationDate: Date
+  public let creationDate: Int64
   public let browser: Browser
   public let geo: Geo
   public let id: String

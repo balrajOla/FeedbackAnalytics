@@ -25,12 +25,16 @@
 		A24242BC2261C69800B08683 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242B02261C69800B08683 /* AppEnvironment.swift */; };
 		A24242BD2261C69800B08683 /* DictionaryEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242B12261C69800B08683 /* DictionaryEncodable.swift */; };
 		A24242BE2261C69800B08683 /* UICollectionView+RegisterCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242B22261C69800B08683 /* UICollectionView+RegisterCells.swift */; };
-		A24242BF2261C69800B08683 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242B32261C69800B08683 /* UIImage.swift */; };
 		A24242C02261C69800B08683 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242B42261C69800B08683 /* Loader.swift */; };
 		A24242C12261C69800B08683 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242B52261C69800B08683 /* Environment.swift */; };
 		A24242C32261E3F100B08683 /* FACache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242C22261E3F100B08683 /* FACache.swift */; };
 		A24242F22261EB0600B08683 /* FeedbackDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242F12261EB0600B08683 /* FeedbackDetailsResponse.swift */; };
 		A24242F4226256AA00B08683 /* Service+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242F3226256AA00B08683 /* Service+Cache.swift */; };
+		A24242F7226258B400B08683 /* FeedbackDetailsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242F6226258B400B08683 /* FeedbackDetailsUsecase.swift */; };
+		A24242FA22626F6300B08683 /* ReaderMonad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242F922626F6300B08683 /* ReaderMonad.swift */; };
+		A24242FC226272E400B08683 /* QueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242FB226272E400B08683 /* QueryBuilder.swift */; };
+		A24242FE2263144800B08683 /* Sequence+Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242FD2263144700B08683 /* Sequence+Reader.swift */; };
+		A242430022633EE000B08683 /* FeedbackDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242FF22633EE000B08683 /* FeedbackDetails.swift */; };
 		BF14005F9BDB2B1CF67C695E /* Pods_FeedbackAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C099F57498CEEC8598E43C7 /* Pods_FeedbackAnalytics.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,12 +62,16 @@
 		A24242B02261C69800B08683 /* AppEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A24242B12261C69800B08683 /* DictionaryEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryEncodable.swift; sourceTree = "<group>"; };
 		A24242B22261C69800B08683 /* UICollectionView+RegisterCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+RegisterCells.swift"; sourceTree = "<group>"; };
-		A24242B32261C69800B08683 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		A24242B42261C69800B08683 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		A24242B52261C69800B08683 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		A24242C22261E3F100B08683 /* FACache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FACache.swift; sourceTree = "<group>"; };
 		A24242F12261EB0600B08683 /* FeedbackDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailsResponse.swift; sourceTree = "<group>"; };
 		A24242F3226256AA00B08683 /* Service+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+Cache.swift"; sourceTree = "<group>"; };
+		A24242F6226258B400B08683 /* FeedbackDetailsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailsUsecase.swift; sourceTree = "<group>"; };
+		A24242F922626F6300B08683 /* ReaderMonad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderMonad.swift; sourceTree = "<group>"; };
+		A24242FB226272E400B08683 /* QueryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryBuilder.swift; sourceTree = "<group>"; };
+		A24242FD2263144700B08683 /* Sequence+Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Reader.swift"; sourceTree = "<group>"; };
+		A24242FF22633EE000B08683 /* FeedbackDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,7 @@
 		A24242742261194400B08683 /* FeedbackAnalytics */ = {
 			isa = PBXGroup;
 			children = (
+				A24242F5226257E900B08683 /* Usecases */,
 				A24242C42261E65B00B08683 /* Models */,
 				A24242A92261C65500B08683 /* Library */,
 				A242429D2261C35D00B08683 /* Service */,
@@ -163,8 +172,10 @@
 				A24242AB2261C69700B08683 /* Result+MapValue.swift */,
 				A24242AC2261C69800B08683 /* ToastMessage.swift */,
 				A24242B22261C69800B08683 /* UICollectionView+RegisterCells.swift */,
-				A24242B32261C69800B08683 /* UIImage.swift */,
 				A24242C22261E3F100B08683 /* FACache.swift */,
+				A24242F922626F6300B08683 /* ReaderMonad.swift */,
+				A24242FB226272E400B08683 /* QueryBuilder.swift */,
+				A24242FD2263144700B08683 /* Sequence+Reader.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -172,6 +183,7 @@
 		A24242C42261E65B00B08683 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A24242F822625D2300B08683 /* Domain */,
 				A24242C52261E66100B08683 /* Response */,
 			);
 			path = Models;
@@ -183,6 +195,22 @@
 				A24242F12261EB0600B08683 /* FeedbackDetailsResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		A24242F5226257E900B08683 /* Usecases */ = {
+			isa = PBXGroup;
+			children = (
+				A24242F6226258B400B08683 /* FeedbackDetailsUsecase.swift */,
+			);
+			path = Usecases;
+			sourceTree = "<group>";
+		};
+		A24242F822625D2300B08683 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A24242FF22633EE000B08683 /* FeedbackDetails.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,23 +327,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24242FA22626F6300B08683 /* ReaderMonad.swift in Sources */,
 				A24242A42261C5F300B08683 /* ServerConfig.swift in Sources */,
+				A24242F7226258B400B08683 /* FeedbackDetailsUsecase.swift in Sources */,
 				A24242BD2261C69800B08683 /* DictionaryEncodable.swift in Sources */,
 				A24242762261194400B08683 /* AppDelegate.swift in Sources */,
 				A24242C32261E3F100B08683 /* FACache.swift in Sources */,
 				A24242A32261C5F300B08683 /* Route.swift in Sources */,
 				A24242B82261C69800B08683 /* ToastMessage.swift in Sources */,
 				A242428D22611D0F00B08683 /* HomeScreenViewController.swift in Sources */,
-				A24242BF2261C69800B08683 /* UIImage.swift in Sources */,
 				A24242BA2261C69800B08683 /* Operators.swift in Sources */,
 				A24242C02261C69800B08683 /* Loader.swift in Sources */,
 				A24242BE2261C69800B08683 /* UICollectionView+RegisterCells.swift in Sources */,
+				A24242FE2263144800B08683 /* Sequence+Reader.swift in Sources */,
 				A24242B92261C69800B08683 /* Network.swift in Sources */,
 				A24242BC2261C69800B08683 /* AppEnvironment.swift in Sources */,
+				A242430022633EE000B08683 /* FeedbackDetails.swift in Sources */,
 				A24242A22261C5F300B08683 /* Service+RequestHelper.swift in Sources */,
 				A24242BB2261C69800B08683 /* PulseAnimation.swift in Sources */,
 				A24242B62261C69800B08683 /* ErrorHandler.swift in Sources */,
 				A24242C12261C69800B08683 /* Environment.swift in Sources */,
+				A24242FC226272E400B08683 /* QueryBuilder.swift in Sources */,
 				A24242A72261C5FF00B08683 /* Service.swift in Sources */,
 				A24242A82261C5FF00B08683 /* ServiceType.swift in Sources */,
 				A24242F22261EB0600B08683 /* FeedbackDetailsResponse.swift in Sources */,
