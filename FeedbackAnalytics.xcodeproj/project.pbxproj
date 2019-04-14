@@ -200,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				A24242F6226258B400B08683 /* FeedbackDetailsUsecase.swift */,
+				A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -208,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				A24242FF22633EE000B08683 /* FeedbackDetails.swift */,
-				A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
