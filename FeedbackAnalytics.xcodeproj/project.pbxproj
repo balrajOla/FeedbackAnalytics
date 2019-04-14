@@ -32,9 +32,9 @@
 		A24242F4226256AA00B08683 /* Service+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242F3226256AA00B08683 /* Service+Cache.swift */; };
 		A24242F7226258B400B08683 /* FeedbackDetailsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242F6226258B400B08683 /* FeedbackDetailsUsecase.swift */; };
 		A24242FA22626F6300B08683 /* ReaderMonad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242F922626F6300B08683 /* ReaderMonad.swift */; };
-		A24242FC226272E400B08683 /* QueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242FB226272E400B08683 /* QueryBuilder.swift */; };
 		A24242FE2263144800B08683 /* Sequence+Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242FD2263144700B08683 /* Sequence+Reader.swift */; };
 		A242430022633EE000B08683 /* FeedbackDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242FF22633EE000B08683 /* FeedbackDetails.swift */; };
+		A2F3C0E322639ACF00A824D6 /* FeedbackQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */; };
 		BF14005F9BDB2B1CF67C695E /* Pods_FeedbackAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C099F57498CEEC8598E43C7 /* Pods_FeedbackAnalytics.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,9 +69,9 @@
 		A24242F3226256AA00B08683 /* Service+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+Cache.swift"; sourceTree = "<group>"; };
 		A24242F6226258B400B08683 /* FeedbackDetailsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailsUsecase.swift; sourceTree = "<group>"; };
 		A24242F922626F6300B08683 /* ReaderMonad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderMonad.swift; sourceTree = "<group>"; };
-		A24242FB226272E400B08683 /* QueryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryBuilder.swift; sourceTree = "<group>"; };
 		A24242FD2263144700B08683 /* Sequence+Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Reader.swift"; sourceTree = "<group>"; };
 		A24242FF22633EE000B08683 /* FeedbackDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetails.swift; sourceTree = "<group>"; };
+		A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackQuery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,6 @@
 				A24242B22261C69800B08683 /* UICollectionView+RegisterCells.swift */,
 				A24242C22261E3F100B08683 /* FACache.swift */,
 				A24242F922626F6300B08683 /* ReaderMonad.swift */,
-				A24242FB226272E400B08683 /* QueryBuilder.swift */,
 				A24242FD2263144700B08683 /* Sequence+Reader.swift */,
 			);
 			path = Library;
@@ -209,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				A24242FF22633EE000B08683 /* FeedbackDetails.swift */,
+				A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -336,6 +336,7 @@
 				A24242A32261C5F300B08683 /* Route.swift in Sources */,
 				A24242B82261C69800B08683 /* ToastMessage.swift in Sources */,
 				A242428D22611D0F00B08683 /* HomeScreenViewController.swift in Sources */,
+				A2F3C0E322639ACF00A824D6 /* FeedbackQuery.swift in Sources */,
 				A24242BA2261C69800B08683 /* Operators.swift in Sources */,
 				A24242C02261C69800B08683 /* Loader.swift in Sources */,
 				A24242BE2261C69800B08683 /* UICollectionView+RegisterCells.swift in Sources */,
@@ -347,7 +348,6 @@
 				A24242BB2261C69800B08683 /* PulseAnimation.swift in Sources */,
 				A24242B62261C69800B08683 /* ErrorHandler.swift in Sources */,
 				A24242C12261C69800B08683 /* Environment.swift in Sources */,
-				A24242FC226272E400B08683 /* QueryBuilder.swift in Sources */,
 				A24242A72261C5FF00B08683 /* Service.swift in Sources */,
 				A24242A82261C5FF00B08683 /* ServiceType.swift in Sources */,
 				A24242F22261EB0600B08683 /* FeedbackDetailsResponse.swift in Sources */,

@@ -12,7 +12,7 @@ class HomeScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        self.title = "Feedback Analytics"
         // Do any additional setup after loading the view.
     }
 
