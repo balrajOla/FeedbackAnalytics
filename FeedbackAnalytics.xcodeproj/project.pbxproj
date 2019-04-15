@@ -37,6 +37,7 @@
 		A2F3C0E322639ACF00A824D6 /* FeedbackQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */; };
 		A2F3C0E72264197200A824D6 /* HomeScreenViewController+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E62264197200A824D6 /* HomeScreenViewController+Calendar.swift */; };
 		A2F3C0E922641B9E00A824D6 /* DateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */; };
+		A2F3C0EE2264E94A00A824D6 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0ED2264E94A00A824D6 /* HomeScreenViewModel.swift */; };
 		BF14005F9BDB2B1CF67C695E /* Pods_FeedbackAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C099F57498CEEC8598E43C7 /* Pods_FeedbackAnalytics.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackQuery.swift; sourceTree = "<group>"; };
 		A2F3C0E62264197200A824D6 /* HomeScreenViewController+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewController+Calendar.swift"; sourceTree = "<group>"; };
 		A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProtocol.swift; sourceTree = "<group>"; };
+		A2F3C0ED2264E94A00A824D6 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		A24242742261194400B08683 /* FeedbackAnalytics */ = {
 			isa = PBXGroup;
 			children = (
+				A2F3C0EC2264E90B00A824D6 /* ViewModels */,
 				A2F3C0E42264194400A824D6 /* ViewControllers */,
 				A24242F5226257E900B08683 /* Usecases */,
 				A24242C42261E65B00B08683 /* Models */,
@@ -233,6 +236,14 @@
 				A2F3C0E62264197200A824D6 /* HomeScreenViewController+Calendar.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A2F3C0EC2264E90B00A824D6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A2F3C0ED2264E94A00A824D6 /* HomeScreenViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +367,7 @@
 				A24242762261194400B08683 /* AppDelegate.swift in Sources */,
 				A2F3C0E72264197200A824D6 /* HomeScreenViewController+Calendar.swift in Sources */,
 				A24242C32261E3F100B08683 /* FACache.swift in Sources */,
+				A2F3C0EE2264E94A00A824D6 /* HomeScreenViewModel.swift in Sources */,
 				A24242A32261C5F300B08683 /* Route.swift in Sources */,
 				A24242B82261C69800B08683 /* ToastMessage.swift in Sources */,
 				A242428D22611D0F00B08683 /* HomeScreenViewController.swift in Sources */,
@@ -507,6 +519,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L88F2NQ59B;
 				INFOPLIST_FILE = FeedbackAnalytics/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,7 +527,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.balraj.FeedbackAnalytics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -526,6 +539,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L88F2NQ59B;
 				INFOPLIST_FILE = FeedbackAnalytics/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,7 +547,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.balraj.FeedbackAnalytics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

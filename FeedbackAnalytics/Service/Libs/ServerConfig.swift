@@ -25,7 +25,7 @@ public struct ServerConfig: ServerConfigType {
   public fileprivate(set) var environment: EnvironmentType
   
   public static let production: ServerConfigType = ServerConfig(
-    apiBaseUrl: URL(string: "https://\(Secrets.Api.Endpoint.production)")!,
+    apiBaseUrl: URL(string: "http://\(Secrets.Api.Endpoint.production)")!,
     environment: EnvironmentType.production
   )
 }
@@ -33,7 +33,7 @@ public struct ServerConfig: ServerConfigType {
 public enum Secrets {
   public enum Api {
     public enum Endpoint {
-      public static let production = "http://cache.usabilla.com"
+      public static let production = "cache.usabilla.com"
     }
   }
 }

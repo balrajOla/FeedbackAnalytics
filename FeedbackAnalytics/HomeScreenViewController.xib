@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeScreenViewController" customModule="FeedbackAnalytics" customModuleProvider="target">
             <connections>
                 <outlet property="calendarRangeSelectorBtn" destination="Pbq-IT-Jly" id="L9Z-qb-TqN"/>
+                <outlet property="ratingAveragePieChart" destination="pYm-VC-a4I" id="ZVJ-AV-VZZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,47 +41,10 @@
                                 <action selector="didCalendarTapped:" destination="-1" eventType="touchUpInside" id="ONG-zV-Vcy"/>
                             </connections>
                         </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="RmQ-JR-fWf">
-                            <rect key="frame" x="0.0" y="55" width="365" height="70"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating Range: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajM-ig-eW0" userLabel="RatingRangeSelectorTitle">
-                                    <rect key="frame" x="0.0" y="0.0" width="111" height="70"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hP-P1-OAQ" userLabel="RatingRangeSelector" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
-                                    <rect key="frame" x="113" y="0.0" width="252" height="70"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="70" id="k4E-2P-WUv"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="minValue">
-                                            <real key="value" value="0.0"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                            <real key="value" value="5"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="step">
-                                            <real key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="hideLabels" value="NO"/>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="minDistance">
-                                            <real key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="maxDistance">
-                                            <real key="value" value="5"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="enableStep" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
-                            </subviews>
-                        </stackView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y6j-JD-LZJ">
-                            <rect key="frame" x="0.0" y="130" width="365" height="507"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYm-VC-a4I" userLabel="PieChart" customClass="PieChartView" customModule="Charts">
+                            <rect key="frame" x="0.0" y="55" width="365" height="582"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </tableView>
+                        </view>
                     </subviews>
                 </stackView>
             </subviews>

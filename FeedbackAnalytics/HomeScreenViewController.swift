@@ -8,16 +8,22 @@
 
 import UIKit
 import CalendarDateRangePickerViewController
+import Charts
 
 class HomeScreenViewController: UIViewController {
   @IBOutlet weak var calendarRangeSelectorBtn: UIButton!
   
-    var dateRangePickerViewController: CalendarDateRangePickerViewController?
+  @IBOutlet weak var ratingAveragePieChart: PieChartView!
+  
+  private let viewModel = HomeScreenViewModel()
+  
+  var dateRangePickerViewController: CalendarDateRangePickerViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Feedback Analytics"
         self.setSettingsForCalendarView()
+        self.fetchRatingAveragePieChartData()
         // Do any additional setup after loading the view.
     }
 
@@ -35,4 +41,14 @@ class HomeScreenViewController: UIViewController {
     }
     */
 
+  private func fetchRatingAveragePieChartData() {
+    Loader.show()
+    viewModel.getFeedbackDetailsWithAverageRating()
+      .done(on: DispatchQueue.main) { (result) in
+        self.ratingAveragePieChart.data = result
+      }.catch { _ in}
+      .finally {
+        Loader.hide()
+    }
+  }
 }
