@@ -14,9 +14,11 @@ public struct Reader<E, A> {
   static func unit<E, A>(_ a: A) -> Reader<E, A> {
     return Reader<E, A>{_ in a}
   }
+  
   func run(_ e: E) -> A {
     return f(e)
   }
+  
   func map<B>(_ g: @escaping (A) -> B) -> Reader<E, B> {
     return Reader<E, B> { e in g(self.run(e)) }
   }

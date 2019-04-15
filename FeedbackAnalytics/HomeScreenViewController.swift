@@ -7,16 +7,24 @@
 //
 
 import UIKit
+import CalendarDateRangePickerViewController
 
 class HomeScreenViewController: UIViewController {
+  @IBOutlet weak var calendarRangeSelectorBtn: UIButton!
+  
+    var dateRangePickerViewController: CalendarDateRangePickerViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Feedback Analytics"
+        self.setSettingsForCalendarView()
         // Do any additional setup after loading the view.
     }
 
-
+  @IBAction func didCalendarTapped(_ sender: Any) {
+    self.presentCalendarView()
+  }
+  
     /*
     // MARK: - Navigation
 

@@ -18,9 +18,19 @@ public struct Environment {
   /// A type that stored cached data
   public let cache: FACache
   
+  /// A type that exposes how to capture dates as measured from # of seconds since 1970.
+  public let dateType: DateProtocol.Type
+  
+  /// The user's calendar.
+  public let calendar: Calendar
+  
   public init(apiService: ServiceType = Service(),
-              cache: FACache = FACache()) {
+              cache: FACache = FACache(),
+              dateType: DateProtocol.Type = Date.self,
+              calendar: Calendar = .current) {
     self.apiService = apiService
     self.cache = cache
+    self.dateType = dateType
+    self.calendar = calendar
   }
 }

@@ -23,7 +23,7 @@ public struct FeedbackItem {
   public let geoLocation: (lat: Double, lng: Double, city: String?)
   public let rating: Int
   public let labels: [String]
-  public let createdDate: Int64
+  public let createdDate: Date
   
   private static let defaultVersion: Float = 0.0
   
@@ -34,6 +34,6 @@ public struct FeedbackItem {
     self.rating = item.rating
     self.labels = item.labels
     self.geoLocation = (lat: item.geo.lat, lng: item.geo.lon, city: item.geo.city)
-    self.createdDate = item.creationDate
+    self.createdDate = AppEnvironment.current.calendar.date(bySettingHour: 0, minute: 0, second: 0, of: Date(timeIntervalSince1970: TimeInterval(item.creationDate))) ?? AppEnvironment.current.dateType.init().date
   }
 }

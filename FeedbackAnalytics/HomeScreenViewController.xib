@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeScreenViewController" customModule="FeedbackAnalytics" customModuleProvider="target">
             <connections>
+                <outlet property="calendarRangeSelectorBtn" destination="Pbq-IT-Jly" id="L9Z-qb-TqN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,12 +30,15 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="5ls-op-a2v"/>
                             </constraints>
-                            <state key="normal" title="Selected Dates: 10/04/2018 - 10/04/2019"/>
+                            <state key="normal" title="Selected Dates: 01/Feb/2014 - 28/Feb/2014"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didCalendarTapped:" destination="-1" eventType="touchUpInside" id="ONG-zV-Vcy"/>
+                            </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="RmQ-JR-fWf">
                             <rect key="frame" x="0.0" y="55" width="365" height="70"/>
