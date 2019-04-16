@@ -21,6 +21,9 @@ extension HomeScreenViewController: CalendarDateRangePickerViewControllerDelegat
   
   func presentCalendarView() {
     self.dateRangePickerViewController.map {
+      $0.selectedStartDate = viewModel.getBetweenDates().startDate
+      $0.selectedEndDate = viewModel.getBetweenDates().endDate
+      
       let navigationController = UINavigationController(rootViewController: $0)
       self.navigationController?.present(navigationController, animated: true, completion: nil)
     }
@@ -32,6 +35,21 @@ extension HomeScreenViewController: CalendarDateRangePickerViewControllerDelegat
   }
   
   func didTapDoneWithDateRange(startDate: Date!, endDate: Date!) {
+    self.viewModel.setBetweenDate(startDate: startDate, endDate: endDate)
+    self.updateCalendarSelectionBtnLabel()
+    self.setLineChartDataForRatingAveragePerDay()
+    self.setLineChartDataForRatingCountPerDay()
     self.dateRangePickerViewController?.dismiss(animated: true, completion: nil)
+  }
+  
+  func updateCalendarSelectionBtnLabel() {
+    let selectedDates = self.viewModel.getBetweenDates()
+    self.calendarRangeSelectorBtn.setTitle("Showing data from \(self.formatDate(date: selectedDates.startDate)) to \(self.formatDate(date: selectedDates.endDate))", for: .normal)
+  }
+  
+  private func formatDate(date: Date) -> String {
+    let dateFormatterPrint = DateFormatter()
+    dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+    return dateFormatterPrint.string(from: date)
   }
 }

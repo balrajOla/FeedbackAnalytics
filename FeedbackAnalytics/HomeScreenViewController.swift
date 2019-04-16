@@ -16,7 +16,7 @@ class HomeScreenViewController: UIViewController {
   @IBOutlet weak var lineChartRatingCountView: LineChartView!
   
   @IBOutlet weak var lineChartView: LineChartView!
-  private let viewModel = HomeScreenViewModel()
+  public let viewModel = HomeScreenViewModel()
   
   var dateRangePickerViewController: CalendarDateRangePickerViewController?
 
@@ -27,6 +27,7 @@ class HomeScreenViewController: UIViewController {
       
         self.setLineChartDataForRatingAveragePerDay()
         self.setLineChartDataForRatingCountPerDay()
+        self.updateCalendarSelectionBtnLabel()
        // Do any additional setup after loading the view.
     }
 
@@ -43,8 +44,8 @@ class HomeScreenViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-  private func setLineChartDataForRatingAveragePerDay() {
+  
+  func setLineChartDataForRatingAveragePerDay() {
     Loader.show()
     viewModel.getFeedbackDetailsRatingPerDay(with: { value -> Double in (value.map { $0.rating }).average })
       .done(on: DispatchQueue.main) { (result) in
@@ -56,7 +57,7 @@ class HomeScreenViewController: UIViewController {
     }
   }
   
-  private func setLineChartDataForRatingCountPerDay() {
+  func setLineChartDataForRatingCountPerDay() {
     Loader.show()
     viewModel.getFeedbackDetailsRatingPerDay(with: { value -> Double in Double(value.count) })
       .done(on: DispatchQueue.main) { (result) in

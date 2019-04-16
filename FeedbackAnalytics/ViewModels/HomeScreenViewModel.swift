@@ -14,10 +14,9 @@ public class HomeScreenViewModel {
   
   private let feedbackUsecase = FeedbackDetailsUsecase()
   
-  private let defaultStartDate: Int64 = 1381365800
-  private let defaultEndDate: Int64 = 1491446293
+  private var defaultStartDate: Int64 = 1381365800
+  private var defaultEndDate: Int64 = 1491446293
   private let defaultValue = 0
-  
   
   public func getFeedbackDetailsWithAverageRating() -> Promise<PieChartData> {
     let feebackDetailsGroupByRating = self.feedbackUsecase.getFeedbackDetails()
@@ -90,6 +89,14 @@ public class HomeScreenViewModel {
     }
   }
   
+  public func getBetweenDates() -> (startDate: Date, endDate: Date) {
+    return (startDate: Date(timeIntervalSince1970: TimeInterval(self.defaultStartDate)), endDate: Date(timeIntervalSince1970: TimeInterval(self.defaultEndDate)))
+  }
+  
+  public func setBetweenDate(startDate: Date, endDate: Date) {
+    self.defaultStartDate = Int64(startDate.timeIntervalSince1970)
+    self.defaultEndDate = Int64(endDate.timeIntervalSince1970)
+  }
   
   //MARK: Private Function
   private func createLineChartData(from data: ([ChartDataEntry], [UIColor])) -> LineChartData {

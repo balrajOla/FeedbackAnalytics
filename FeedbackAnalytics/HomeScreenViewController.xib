@@ -32,7 +32,10 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="5ls-op-a2v"/>
                             </constraints>
-                            <state key="normal" title="Selected Dates: 01/Feb/2014 - 28/Feb/2014"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                            <state key="normal" title="Showing Data from 01/Feb/2014 - 28/Feb/2014">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="5"/>
