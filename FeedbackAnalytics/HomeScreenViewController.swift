@@ -15,6 +15,8 @@ class HomeScreenViewController: UIViewController {
   
   @IBOutlet weak var ratingAveragePieChart: PieChartView!
   
+  @IBOutlet weak var platformsRatingsCountBarChart: HorizontalBarChartView!
+  
   private let viewModel = HomeScreenViewModel()
   
   var dateRangePickerViewController: CalendarDateRangePickerViewController?
@@ -23,7 +25,8 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Feedback Analytics"
         self.setSettingsForCalendarView()
-        self.fetchRatingAveragePieChartData()
+        self.setRatingAveragePieChartData()
+        self.setPlatformRatingCount()
         // Do any additional setup after loading the view.
     }
 
@@ -41,11 +44,22 @@ class HomeScreenViewController: UIViewController {
     }
     */
 
-  private func fetchRatingAveragePieChartData() {
+  private func setRatingAveragePieChartData() {
     Loader.show()
     viewModel.getFeedbackDetailsWithAverageRating()
       .done(on: DispatchQueue.main) { (result) in
         self.ratingAveragePieChart.data = result
+      }.catch { _ in}
+      .finally {
+        Loader.hide()
+    }
+  }
+  
+  private func setPlatformRatingCount() {
+    Loader.show()
+    viewModel.getFeedbackDetailsWithRatingCountForPlatform()
+      .done(on: DispatchQueue.main) { (result) in
+        self.platformsRatingsCountBarChart.data = result
       }.catch { _ in}
       .finally {
         Loader.hide()
