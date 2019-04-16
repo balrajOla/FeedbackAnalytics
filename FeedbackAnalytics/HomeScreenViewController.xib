@@ -24,15 +24,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MiD-t3-teW">
-                    <rect key="frame" x="5" y="25" width="365" height="637"/>
+                    <rect key="frame" x="0.0" y="25" width="375" height="637"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbq-IT-Jly" userLabel="DateRangeBtn">
-                            <rect key="frame" x="0.0" y="0.0" width="365" height="50"/>
-                            <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbq-IT-Jly" userLabel="DateRangeBtn">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="5ls-op-a2v"/>
+                                <constraint firstAttribute="height" constant="30" id="5ls-op-a2v"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Showing Data from 01/Feb/2014 - 28/Feb/2014">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -45,25 +46,41 @@
                                 <action selector="didCalendarTapped:" destination="-1" eventType="touchUpInside" id="ONG-zV-Vcy"/>
                             </connections>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxh-7D-nzD" userLabel="seperator">
+                            <rect key="frame" x="0.0" y="35" width="375" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Zap-dE-0fQ"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z11-70-XvF" customClass="LineChartView" customModule="Charts">
-                            <rect key="frame" x="0.0" y="55" width="365" height="288.5"/>
+                            <rect key="frame" x="0.0" y="41" width="375" height="292.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqo-jH-a4L" userLabel="seperator">
+                            <rect key="frame" x="0.0" y="338.5" width="375" height="1"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="hbh-pm-gqZ"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWF-6r-d4w" userLabel="Line Chart View Count" customClass="LineChartView" customModule="Charts">
-                            <rect key="frame" x="0.0" y="348.5" width="365" height="288.5"/>
+                            <rect key="frame" x="0.0" y="344.5" width="375" height="292.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="uxh-7D-nzD" firstAttribute="leading" secondItem="MiD-t3-teW" secondAttribute="leading" id="Dr9-CG-ZIX"/>
+                        <constraint firstAttribute="trailing" secondItem="uxh-7D-nzD" secondAttribute="trailing" id="r7l-Yg-MlK"/>
                         <constraint firstItem="VWF-6r-d4w" firstAttribute="height" secondItem="z11-70-XvF" secondAttribute="height" id="wvR-Wi-a0E"/>
                     </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="MiD-t3-teW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="8LZ-gU-iAK"/>
+                <constraint firstItem="MiD-t3-teW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8LZ-gU-iAK"/>
                 <constraint firstItem="MiD-t3-teW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="dGd-CW-Jhm"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MiD-t3-teW" secondAttribute="trailing" constant="5" id="ejB-QA-glp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MiD-t3-teW" secondAttribute="trailing" id="ejB-QA-glp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MiD-t3-teW" secondAttribute="bottom" constant="5" id="l34-P5-CAk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

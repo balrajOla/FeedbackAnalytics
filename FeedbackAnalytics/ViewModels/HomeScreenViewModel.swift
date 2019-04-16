@@ -91,11 +91,10 @@ public class HomeScreenViewModel {
           }.sorted(by: { (valueOne, valueSecond) -> Bool in
             return valueOne.0 < valueSecond.0
           })
-          .reduce(([ChartDataEntry](), [UIColor]())) { (res, item) -> ([ChartDataEntry], [UIColor]) in
+          .reduce([ChartDataEntry]()) { (res, item) -> [ChartDataEntry] in
             var result = res
             print("Date: \(item.0.timeIntervalSince1970), value: \(item.1)")
-            result.0.append(ChartDataEntry(x: item.0.timeIntervalSince1970, y: item.1))
-            result.1.append(UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1))
+            result.append(ChartDataEntry(x: item.0.timeIntervalSince1970, y: item.1))
             
             return result
           }
@@ -113,9 +112,11 @@ public class HomeScreenViewModel {
   }
   
   //MARK: Private Function
-  private func createLineChartData(from data: ([ChartDataEntry], [UIColor])) -> LineChartData {
-    let chartDataSet = LineChartDataSet(values: data.0, label: "Average Rating Per Day")
-    chartDataSet.colors = data.1
+  private func createLineChartData(from data: [ChartDataEntry]) -> LineChartData {
+     let color = UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1)
+    
+    let chartDataSet = LineChartDataSet(values: data, label: "Average Rating Per Day")
+    chartDataSet.colors = [color]
     
     let chartData = LineChartData(dataSet: chartDataSet)
     return chartData
