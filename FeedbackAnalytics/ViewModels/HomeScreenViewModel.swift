@@ -75,9 +75,11 @@ public class HomeScreenViewModel {
     }
   }
   
-  public func getFeedbackDetailsRatingPerDay(with query: @escaping ([FeedbackItem]) -> Double) -> Promise<LineChartData> {
+  public func getFeedbackDetailsRatingPerDay(withLabel label: String,
+                                             with query: @escaping ([FeedbackItem]) -> Double) -> Promise<LineChartData> {
     let feebackDetailsGroupByDate = self.feedbackUsecase.getFeedbackDetails()
       |> self.feedbackDetailsGroupedByDates(feedbackDetails:)
+    let createLineChartDataWithLabel = self.createLineChartData(withLabel: label)
     
     return ((startDate: defaultStartDate, endDate: defaultEndDate)
       |> feebackDetailsGroupByDate)
@@ -98,7 +100,7 @@ public class HomeScreenViewModel {
             
             return result
           }
-          |> self.createLineChartData(from:)
+          |> createLineChartDataWithLabel
     }
   }
   
@@ -112,14 +114,19 @@ public class HomeScreenViewModel {
   }
   
   //MARK: Private Function
-  private func createLineChartData(from data: [ChartDataEntry]) -> LineChartData {
-     let color = UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1)
-    
-    let chartDataSet = LineChartDataSet(values: data, label: "Average Rating Per Day")
-    chartDataSet.colors = [color]
-    
-    let chartData = LineChartData(dataSet: chartDataSet)
-    return chartData
+  private func createLineChartData(withLabel label: String)
+    -> (_ data: [ChartDataEntry])
+    -> LineChartData {
+      return { (data: [ChartDataEntry])
+        -> LineChartData in
+        let color = UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1)
+        
+        let chartDataSet = LineChartDataSet(values: data, label: label)
+        chartDataSet.colors = [color]
+        
+        let chartData = LineChartData(dataSet: chartDataSet)
+        return chartData
+      }
   }
   
   private func createBarChartData(from data: ([BarChartDataEntry], [UIColor])) -> BarChartData {
