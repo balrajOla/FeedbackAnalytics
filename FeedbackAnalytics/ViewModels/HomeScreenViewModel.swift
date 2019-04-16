@@ -75,7 +75,10 @@ public class HomeScreenViewModel {
         
         return response.map { item -> (Date, Double) in
           return (item.key, (item.value.map { $0.rating }).average)
-          }.reduce(([ChartDataEntry](), [UIColor]())) { (res, item) -> ([ChartDataEntry], [UIColor]) in
+          }.sorted(by: { (valueOne, valueSecond) -> Bool in
+            return valueOne.0 < valueSecond.0
+          })
+          .reduce(([ChartDataEntry](), [UIColor]())) { (res, item) -> ([ChartDataEntry], [UIColor]) in
             var result = res
             print("Date: \(item.0.timeIntervalSince1970), value: \(item.1)")
             result.0.append(ChartDataEntry(x: item.0.timeIntervalSince1970, y: item.1))
