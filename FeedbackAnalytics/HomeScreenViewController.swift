@@ -51,7 +51,9 @@ class HomeScreenViewController: UIViewController {
       .done(on: DispatchQueue.main) { (result) in
         self.lineChartView.data = result
         self.lineChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
-      }.catch { _ in}
+      }.catch { _ in
+        self.lineChartView.data = nil
+      }
       .finally {
         Loader.hide()
     }
@@ -63,7 +65,9 @@ class HomeScreenViewController: UIViewController {
       .done(on: DispatchQueue.main) { (result) in
         self.lineChartRatingCountView.data = result
         self.lineChartRatingCountView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
-      }.catch { _ in}
+      }.catch { _ in
+        self.lineChartRatingCountView.data = nil
+      }
       .finally {
         Loader.hide()
     }

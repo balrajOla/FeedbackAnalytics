@@ -10,6 +10,10 @@ import Foundation
 import Charts
 import PromiseKit
 
+public enum FeedbackDetailsDataError: Error {
+  case noData
+}
+
 public class HomeScreenViewModel {
   
   private let feedbackUsecase = FeedbackDetailsUsecase()
@@ -20,11 +24,14 @@ public class HomeScreenViewModel {
   
   public func getFeedbackDetailsWithAverageRating() -> Promise<PieChartData> {
     let feebackDetailsGroupByRating = self.feedbackUsecase.getFeedbackDetails()
-                             |> self.feedbackDetailsGroupedByRating(feedbackDetails:)
+      |> self.feedbackDetailsGroupedByRating(feedbackDetails:)
     
     return ((startDate: defaultStartDate, endDate: defaultEndDate)
-           |> feebackDetailsGroupByRating)
-            .map(on: DispatchQueue.global(qos: .utility)) { (response) -> PieChartData in
+      |> feebackDetailsGroupByRating)
+      .map(on: DispatchQueue.global(qos: .utility)) { (response) -> PieChartData in
+        guard response.count > 0 else {
+          throw FeedbackDetailsDataError.noData
+        }
         
         return response.map { (item) -> (Int, Int) in
           return (item.key, (item.value.count))
@@ -45,8 +52,12 @@ public class HomeScreenViewModel {
       |> self.feedbackDetailsGroupedByPlatform(feedbackDetails:)
     
     return ((startDate: defaultStartDate, endDate: defaultEndDate)
-            |> feebackDetailsGroupByPlatform)
+      |> feebackDetailsGroupByPlatform)
       .map(on: DispatchQueue.global(qos: .utility)) { response -> BarChartData in
+        guard response.count > 0 else {
+          throw FeedbackDetailsDataError.noData
+        }
+        
         let spaceForBar = 5.0
         let randomLimit: UInt32 = 10
         
@@ -59,8 +70,8 @@ public class HomeScreenViewModel {
             result.1.append(UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1))
             
             return result
-        }
-        |> self.createBarChartData(from:)
+          }
+          |> self.createBarChartData(from:)
     }
   }
   
@@ -71,6 +82,9 @@ public class HomeScreenViewModel {
     return ((startDate: defaultStartDate, endDate: defaultEndDate)
       |> feebackDetailsGroupByDate)
       .map(on: DispatchQueue.global(qos: .utility)) { response -> LineChartData in
+        guard response.count > 0 else {
+          throw FeedbackDetailsDataError.noData
+        }
         
         return response.map { item -> (Date, Double) in
           return (item.key, query(item.value))
