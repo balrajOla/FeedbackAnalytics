@@ -13,6 +13,7 @@ import Charts
 class HomeScreenViewController: UIViewController {
   @IBOutlet weak var calendarRangeSelectorBtn: UIButton!
   
+  @IBOutlet weak var averageRatingLabel: UILabel!
   @IBOutlet weak var lineChartRatingCountView: LineChartView!
   
   @IBOutlet weak var lineChartView: LineChartView!
@@ -28,6 +29,7 @@ class HomeScreenViewController: UIViewController {
         self.setLineChartDataForRatingAveragePerDay()
         self.setLineChartDataForRatingCountPerDay()
         self.updateCalendarSelectionBtnLabel()
+        self.setAverageRating()
        // Do any additional setup after loading the view.
     }
 
@@ -70,6 +72,15 @@ class HomeScreenViewController: UIViewController {
       }
       .finally {
         Loader.hide()
+    }
+  }
+  
+  func setAverageRating() {
+    viewModel.getAverageRatingForSelectedRange()
+      .done {
+        self.averageRatingLabel.text = "Average Rating: \($0)"
+      }.catch { _ in
+        self.averageRatingLabel.text = "Average Rating: NA"
     }
   }
 }

@@ -52,4 +52,17 @@ extension HomeScreenViewModel {
         }
       }
   }
+  
+  public func feedbackDetailsFilterByDates(feedbackDetails: Promise<[FeedbackItem]>)
+    -> (_ between: (startDate: Int64, endDate: Int64))
+    -> Promise<[FeedbackItem]> {
+      return { (between: (startDate: Int64, endDate: Int64)) -> Promise<[FeedbackItem]> in
+        return feedbackDetails
+          .map(on: DispatchQueue.global(qos: .utility)) { (response: [FeedbackItem]) -> [FeedbackItem] in
+            return response
+              |> (between
+                |> FeedbackQuery.filterByDate).run
+        }
+      }
+  }
 }

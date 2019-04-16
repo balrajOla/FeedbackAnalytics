@@ -39,6 +39,7 @@ extension HomeScreenViewController: CalendarDateRangePickerViewControllerDelegat
     self.updateCalendarSelectionBtnLabel()
     self.setLineChartDataForRatingAveragePerDay()
     self.setLineChartDataForRatingCountPerDay()
+    self.setAverageRating()
     self.dateRangePickerViewController?.dismiss(animated: true, completion: nil)
   }
   
