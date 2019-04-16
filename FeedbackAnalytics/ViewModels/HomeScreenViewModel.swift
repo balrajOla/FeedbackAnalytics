@@ -65,7 +65,7 @@ public class HomeScreenViewModel {
     }
   }
   
-  public func getFeedbackDetailsWithAverageRatingPerDay() -> Promise<LineChartData> {
+  public func getFeedbackDetailsRatingPerDay(with query: @escaping ([FeedbackItem]) -> Double) -> Promise<LineChartData> {
     let feebackDetailsGroupByDate = self.feedbackUsecase.getFeedbackDetails()
       |> self.feedbackDetailsGroupedByDates(feedbackDetails:)
     
@@ -74,7 +74,7 @@ public class HomeScreenViewModel {
       .map(on: DispatchQueue.global(qos: .utility)) { response -> LineChartData in
         
         return response.map { item -> (Date, Double) in
-          return (item.key, (item.value.map { $0.rating }).average)
+          return (item.key, query(item.value))
           }.sorted(by: { (valueOne, valueSecond) -> Bool in
             return valueOne.0 < valueSecond.0
           })

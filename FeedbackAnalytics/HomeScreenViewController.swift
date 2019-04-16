@@ -13,7 +13,7 @@ import Charts
 class HomeScreenViewController: UIViewController {
   @IBOutlet weak var calendarRangeSelectorBtn: UIButton!
   
-  @IBOutlet weak var ratingAveragePieChart: PieChartView!
+  @IBOutlet weak var lineChartRatingCountView: LineChartView!
   
   @IBOutlet weak var lineChartView: LineChartView!
   private let viewModel = HomeScreenViewModel()
@@ -25,10 +25,9 @@ class HomeScreenViewController: UIViewController {
         self.title = "Feedback Analytics"
         self.setSettingsForCalendarView()
       
-      self.setLineChartData()
-        self.setRatingAveragePieChartData()
-      
-        // Do any additional setup after loading the view.
+        self.setLineChartDataForRatingAveragePerDay()
+        self.setLineChartDataForRatingCountPerDay()
+       // Do any additional setup after loading the view.
     }
 
   @IBAction func didCalendarTapped(_ sender: Any) {
@@ -45,9 +44,9 @@ class HomeScreenViewController: UIViewController {
     }
     */
 
-  private func setLineChartData() {
+  private func setLineChartDataForRatingAveragePerDay() {
     Loader.show()
-    viewModel.getFeedbackDetailsWithAverageRatingPerDay()
+    viewModel.getFeedbackDetailsRatingPerDay(with: { value -> Double in (value.map { $0.rating }).average })
       .done(on: DispatchQueue.main) { (result) in
         self.lineChartView.data = result
         self.lineChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
@@ -57,12 +56,12 @@ class HomeScreenViewController: UIViewController {
     }
   }
   
-  private func setRatingAveragePieChartData() {
+  private func setLineChartDataForRatingCountPerDay() {
     Loader.show()
-    viewModel.getFeedbackDetailsWithAverageRating()
+    viewModel.getFeedbackDetailsRatingPerDay(with: { value -> Double in Double(value.count) })
       .done(on: DispatchQueue.main) { (result) in
-        self.ratingAveragePieChart.data = result
-        self.ratingAveragePieChart.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
+        self.lineChartRatingCountView.data = result
+        self.lineChartRatingCountView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
       }.catch { _ in}
       .finally {
         Loader.hide()
