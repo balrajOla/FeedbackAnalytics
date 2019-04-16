@@ -12,30 +12,10 @@ import PromiseKit
 public struct FeedbackDetailsUsecase {
   public init() {}
   
-  public func getFeedbackDetailsGroupedByPlatform(between: (startDate: Int64, endDate: Int64)) -> Promise<[String : [FeedbackItem]]> {
+  public func getFeedbackDetails() -> Promise<[FeedbackItem]> {
     return AppEnvironment.current.apiService.fetchFeedbackDetails()
-      .map(on: DispatchQueue.global(qos: .utility)) { (response: FeedbackDetailsResponse) -> [String : [FeedbackItem]] in
+      .map(on: DispatchQueue.global(qos: .utility)) { (response: FeedbackDetailsResponse) -> [FeedbackItem] in
         return response.items.map { FeedbackItem(item: $0) }
-          |> ((between
-            |> FeedbackQuery.filterByDate) >>>= FeedbackQuery.groupByPlatform().run).run
-    }
-  }
-  
-  public func getFeedbackDetailsGroupedByRating(between: (startDate: Int64, endDate: Int64)) -> Promise<[Int : [FeedbackItem]]> {
-    return AppEnvironment.current.apiService.fetchFeedbackDetails()
-      .map(on: DispatchQueue.global(qos: .utility)) { (response: FeedbackDetailsResponse) -> [Int : [FeedbackItem]] in
-        return response.items.map { FeedbackItem(item: $0) }
-          |> ((between
-            |> FeedbackQuery.filterByDate) >>>= FeedbackQuery.groupByRating().run).run
-    }
-  }
-  
-  public func getFeedbackDetailsGroupedByDates(between: (startDate: Int64, endDate: Int64)) -> Promise<[Date : [FeedbackItem]]> {
-    return AppEnvironment.current.apiService.fetchFeedbackDetails()
-      .map(on: DispatchQueue.global(qos: .utility)) { (response: FeedbackDetailsResponse) -> [Date : [FeedbackItem]] in
-        return response.items.map { FeedbackItem(item: $0) }
-          |> ((between
-            |> FeedbackQuery.filterByDate) >>>= FeedbackQuery.groupByCreatedDate().run).run
     }
   }
 }

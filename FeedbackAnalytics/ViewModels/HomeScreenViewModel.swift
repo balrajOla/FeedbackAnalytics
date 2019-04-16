@@ -18,9 +18,14 @@ public class HomeScreenViewModel {
   private let defaultEndDate: Int64 = 1491446293
   private let defaultValue = 0
   
+  
   public func getFeedbackDetailsWithAverageRating() -> Promise<PieChartData> {
-    return self.feedbackUsecase.getFeedbackDetailsGroupedByRating(between: (startDate: defaultStartDate, endDate: defaultEndDate))
-      .map(on: DispatchQueue.global(qos: .utility)) { (response) -> PieChartData in
+    let feebackDetailsGroupByRating = self.feedbackUsecase.getFeedbackDetails()
+                             |> self.feedbackDetailsGroupedByRating(feedbackDetails:)
+    
+    return ((startDate: defaultStartDate, endDate: defaultEndDate)
+           |> feebackDetailsGroupByRating)
+            .map(on: DispatchQueue.global(qos: .utility)) { (response) -> PieChartData in
         
         return response.map { (item) -> (Int, Int) in
           return (item.key, (item.value.count))
@@ -37,9 +42,13 @@ public class HomeScreenViewModel {
   }
   
   public func getFeedbackDetailsWithRatingCountForPlatform() -> Promise<BarChartData> {
-    return self.feedbackUsecase.getFeedbackDetailsGroupedByPlatform(between: (startDate: defaultStartDate, endDate: defaultEndDate))
+    let feebackDetailsGroupByPlatform = self.feedbackUsecase.getFeedbackDetails()
+      |> self.feedbackDetailsGroupedByPlatform(feedbackDetails:)
+    
+    return ((startDate: defaultStartDate, endDate: defaultEndDate)
+            |> feebackDetailsGroupByPlatform)
       .map(on: DispatchQueue.global(qos: .utility)) { response -> BarChartData in
-        let spaceForBar = 2
+        let spaceForBar = 5.0
         let randomLimit: UInt32 = 10
         
         return response.map { item -> (String, Int) in
@@ -47,7 +56,7 @@ public class HomeScreenViewModel {
           }.reduce(([BarChartDataEntry](), [UIColor]())) { (res, item) -> ([BarChartDataEntry], [UIColor]) in
             var result = res
             let valY = Double(arc4random_uniform(randomLimit))
-            result.0.append(BarChartDataEntry(x: Double(item.1 * spaceForBar), y: valY))
+            result.0.append(BarChartDataEntry(x: Double(item.1) * spaceForBar, y: valY))
             result.1.append(UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1))
             
             return result

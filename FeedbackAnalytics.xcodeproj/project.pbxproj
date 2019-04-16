@@ -38,6 +38,7 @@
 		A2F3C0E72264197200A824D6 /* HomeScreenViewController+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E62264197200A824D6 /* HomeScreenViewController+Calendar.swift */; };
 		A2F3C0E922641B9E00A824D6 /* DateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */; };
 		A2F3C0EE2264E94A00A824D6 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0ED2264E94A00A824D6 /* HomeScreenViewModel.swift */; };
+		A2F3C0F222658FF200A824D6 /* HomeScreenViewModel+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0F122658FF200A824D6 /* HomeScreenViewModel+Query.swift */; };
 		BF14005F9BDB2B1CF67C695E /* Pods_FeedbackAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C099F57498CEEC8598E43C7 /* Pods_FeedbackAnalytics.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		A2F3C0E62264197200A824D6 /* HomeScreenViewController+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewController+Calendar.swift"; sourceTree = "<group>"; };
 		A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProtocol.swift; sourceTree = "<group>"; };
 		A2F3C0ED2264E94A00A824D6 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		A2F3C0F122658FF200A824D6 /* HomeScreenViewModel+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewModel+Query.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				A2F3C0ED2264E94A00A824D6 /* HomeScreenViewModel.swift */,
+				A2F3C0F122658FF200A824D6 /* HomeScreenViewModel+Query.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				A24242FE2263144800B08683 /* Sequence+Reader.swift in Sources */,
 				A24242B92261C69800B08683 /* Network.swift in Sources */,
 				A24242BC2261C69800B08683 /* AppEnvironment.swift in Sources */,
+				A2F3C0F222658FF200A824D6 /* HomeScreenViewModel+Query.swift in Sources */,
 				A242430022633EE000B08683 /* FeedbackDetails.swift in Sources */,
 				A24242A22261C5F300B08683 /* Service+RequestHelper.swift in Sources */,
 				A24242BB2261C69800B08683 /* PulseAnimation.swift in Sources */,
