@@ -15,8 +15,7 @@ class HomeScreenViewController: UIViewController {
   
   @IBOutlet weak var ratingAveragePieChart: PieChartView!
   
-  @IBOutlet weak var platformsRatingsCountBarChart: HorizontalBarChartView!
-  
+  @IBOutlet weak var lineChartView: LineChartView!
   private let viewModel = HomeScreenViewModel()
   
   var dateRangePickerViewController: CalendarDateRangePickerViewController?
@@ -25,10 +24,10 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Feedback Analytics"
         self.setSettingsForCalendarView()
-        self.setPlatformRatingCountSettings()
       
+      self.setLineChartData()
         self.setRatingAveragePieChartData()
-        self.setPlatformRatingCountData()
+      
         // Do any additional setup after loading the view.
     }
 
@@ -46,44 +45,24 @@ class HomeScreenViewController: UIViewController {
     }
     */
 
-  private func setRatingAveragePieChartData() {
+  private func setLineChartData() {
     Loader.show()
-    viewModel.getFeedbackDetailsWithAverageRating()
+    viewModel.getFeedbackDetailsWithAverageRatingPerDay()
       .done(on: DispatchQueue.main) { (result) in
-        self.ratingAveragePieChart.data = result
-        self.ratingAveragePieChart.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
+        self.lineChartView.data = result
+        self.lineChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
       }.catch { _ in}
       .finally {
         Loader.hide()
     }
   }
   
-  private func setPlatformRatingCountSettings() {
-    let xAxis = self.platformsRatingsCountBarChart.xAxis
-    xAxis.labelPosition = .bottom
-    xAxis.labelFont = .systemFont(ofSize: 10)
-    xAxis.drawAxisLineEnabled = true
-    xAxis.granularity = 10
-    
-    let leftAxis = self.platformsRatingsCountBarChart.leftAxis
-    leftAxis.labelFont = .systemFont(ofSize: 10)
-    leftAxis.drawAxisLineEnabled = true
-    leftAxis.drawGridLinesEnabled = true
-    leftAxis.axisMinimum = 0
-    
-    let rightAxis = self.platformsRatingsCountBarChart.rightAxis
-    rightAxis.enabled = true
-    rightAxis.labelFont = .systemFont(ofSize: 10)
-    rightAxis.drawAxisLineEnabled = true
-    rightAxis.axisMinimum = 0
-  }
-  
-  private func setPlatformRatingCountData() {
+  private func setRatingAveragePieChartData() {
     Loader.show()
-    viewModel.getFeedbackDetailsWithRatingCountForPlatform()
+    viewModel.getFeedbackDetailsWithAverageRating()
       .done(on: DispatchQueue.main) { (result) in
-        self.platformsRatingsCountBarChart.data = result
-        self.platformsRatingsCountBarChart.animate(yAxisDuration: TimeInterval(1))
+        self.ratingAveragePieChart.data = result
+        self.ratingAveragePieChart.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
       }.catch { _ in}
       .finally {
         Loader.hide()

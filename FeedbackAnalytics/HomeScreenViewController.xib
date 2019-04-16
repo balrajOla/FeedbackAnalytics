@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeScreenViewController" customModule="FeedbackAnalytics" customModuleProvider="target">
             <connections>
                 <outlet property="calendarRangeSelectorBtn" destination="Pbq-IT-Jly" id="L9Z-qb-TqN"/>
-                <outlet property="platformsRatingsCountBarChart" destination="8sc-Zm-jgJ" id="qSH-yg-b1P"/>
+                <outlet property="lineChartView" destination="z11-70-XvF" id="UUs-Mw-fZE"/>
                 <outlet property="ratingAveragePieChart" destination="pYm-VC-a4I" id="ZVJ-AV-VZZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -46,13 +46,13 @@
                             <rect key="frame" x="0.0" y="55" width="365" height="288.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sc-Zm-jgJ" userLabel="HorizontalBarChart" customClass="HorizontalBarChartView" customModule="Charts">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z11-70-XvF" customClass="LineChartView" customModule="Charts">
                             <rect key="frame" x="0.0" y="348.5" width="365" height="288.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="8sc-Zm-jgJ" firstAttribute="height" secondItem="pYm-VC-a4I" secondAttribute="height" id="vL6-x4-uzU"/>
+                        <constraint firstItem="z11-70-XvF" firstAttribute="height" secondItem="pYm-VC-a4I" secondAttribute="height" id="av2-I3-oPl"/>
                     </constraints>
                 </stackView>
             </subviews>

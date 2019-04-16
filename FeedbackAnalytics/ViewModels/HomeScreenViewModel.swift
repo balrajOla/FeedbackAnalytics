@@ -65,6 +65,38 @@ public class HomeScreenViewModel {
     }
   }
   
+  public func getFeedbackDetailsWithAverageRatingPerDay() -> Promise<LineChartData> {
+    let feebackDetailsGroupByDate = self.feedbackUsecase.getFeedbackDetails()
+      |> self.feedbackDetailsGroupedByDates(feedbackDetails:)
+    
+    return ((startDate: defaultStartDate, endDate: defaultEndDate)
+      |> feebackDetailsGroupByDate)
+      .map(on: DispatchQueue.global(qos: .utility)) { response -> LineChartData in
+        
+        return response.map { item -> (Date, Double) in
+          return (item.key, (item.value.map { $0.rating }).average)
+          }.reduce(([ChartDataEntry](), [UIColor]())) { (res, item) -> ([ChartDataEntry], [UIColor]) in
+            var result = res
+            print("Date: \(item.0.timeIntervalSince1970), value: \(item.1)")
+            result.0.append(ChartDataEntry(x: item.0.timeIntervalSince1970, y: item.1))
+            result.1.append(UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1))
+            
+            return result
+          }
+          |> self.createLineChartData(from:)
+    }
+  }
+  
+  
+  //MARK: Private Function
+  private func createLineChartData(from data: ([ChartDataEntry], [UIColor])) -> LineChartData {
+    let chartDataSet = LineChartDataSet(values: data.0, label: "Average Rating Per Day")
+    chartDataSet.colors = data.1
+    
+    let chartData = LineChartData(dataSet: chartDataSet)
+    return chartData
+  }
+  
   private func createBarChartData(from data: ([BarChartDataEntry], [UIColor])) -> BarChartData {
     let barWidth = 1.0
     

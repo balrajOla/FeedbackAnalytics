@@ -26,4 +26,10 @@ public struct FeedbackQuery {
   public static let groupByRating = { () -> Reader<[FeedbackItem], [Int : [FeedbackItem]]> in
     return groupBy(\FeedbackItem.rating)
   }
+  
+  public static let sortByCreatedDate = { () -> Reader<[FeedbackItem], [FeedbackItem]> in
+    return sort(by: { (itemOne, itemSecond) -> Bool in
+      return itemOne.createdDate < itemSecond.createdDate
+    })
+  }
 }

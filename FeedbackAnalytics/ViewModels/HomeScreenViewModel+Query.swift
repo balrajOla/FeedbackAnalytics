@@ -18,7 +18,8 @@ extension HomeScreenViewModel {
           .map(on: DispatchQueue.global(qos: .utility)) { (response: [FeedbackItem]) -> [String : [FeedbackItem]] in
             return response
               |> ((between
-                |> FeedbackQuery.filterByDate) >>>= FeedbackQuery.groupByPlatform().run).run
+                |> FeedbackQuery.filterByDate)
+                >>>= FeedbackQuery.groupByPlatform().run).run
         }
       }
   }
@@ -31,7 +32,8 @@ extension HomeScreenViewModel {
           .map(on: DispatchQueue.global(qos: .utility)) { (response: [FeedbackItem]) -> [Int : [FeedbackItem]] in
             return response
               |> ((between
-                |> FeedbackQuery.filterByDate) >>>= FeedbackQuery.groupByRating().run).run
+                |> FeedbackQuery.filterByDate)
+                >>>= FeedbackQuery.groupByRating().run).run
         }
       }
   }
@@ -44,7 +46,9 @@ extension HomeScreenViewModel {
           .map(on: DispatchQueue.global(qos: .utility)) { (response: [FeedbackItem]) -> [Date : [FeedbackItem]] in
             return response
               |> ((between
-                |> FeedbackQuery.filterByDate) >>>= FeedbackQuery.groupByCreatedDate().run).run
+                |> FeedbackQuery.filterByDate)
+                >>>= FeedbackQuery.sortByCreatedDate().run
+                >>>= FeedbackQuery.groupByCreatedDate().run).run
         }
       }
   }

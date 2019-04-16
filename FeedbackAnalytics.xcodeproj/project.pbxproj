@@ -39,6 +39,7 @@
 		A2F3C0E922641B9E00A824D6 /* DateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */; };
 		A2F3C0EE2264E94A00A824D6 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0ED2264E94A00A824D6 /* HomeScreenViewModel.swift */; };
 		A2F3C0F222658FF200A824D6 /* HomeScreenViewModel+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0F122658FF200A824D6 /* HomeScreenViewModel+Query.swift */; };
+		A2F3C0F42265A0CC00A824D6 /* Collection+Average.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0F32265A0CC00A824D6 /* Collection+Average.swift */; };
 		BF14005F9BDB2B1CF67C695E /* Pods_FeedbackAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C099F57498CEEC8598E43C7 /* Pods_FeedbackAnalytics.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProtocol.swift; sourceTree = "<group>"; };
 		A2F3C0ED2264E94A00A824D6 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		A2F3C0F122658FF200A824D6 /* HomeScreenViewModel+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewModel+Query.swift"; sourceTree = "<group>"; };
+		A2F3C0F32265A0CC00A824D6 /* Collection+Average.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Average.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				A24242F922626F6300B08683 /* ReaderMonad.swift */,
 				A24242FD2263144700B08683 /* Sequence+Reader.swift */,
 				A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */,
+				A2F3C0F32265A0CC00A824D6 /* Collection+Average.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				A24242FE2263144800B08683 /* Sequence+Reader.swift in Sources */,
 				A24242B92261C69800B08683 /* Network.swift in Sources */,
 				A24242BC2261C69800B08683 /* AppEnvironment.swift in Sources */,
+				A2F3C0F42265A0CC00A824D6 /* Collection+Average.swift in Sources */,
 				A2F3C0F222658FF200A824D6 /* HomeScreenViewModel+Query.swift in Sources */,
 				A242430022633EE000B08683 /* FeedbackDetails.swift in Sources */,
 				A24242A22261C5F300B08683 /* Service+RequestHelper.swift in Sources */,
