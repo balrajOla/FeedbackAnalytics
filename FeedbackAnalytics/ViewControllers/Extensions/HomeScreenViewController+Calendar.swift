@@ -15,7 +15,7 @@ extension HomeScreenViewController: CalendarDateRangePickerViewControllerDelegat
     self.dateRangePickerViewController?.delegate = self
     let todayDate = AppEnvironment.current.dateType.init().date
     
-    self.dateRangePickerViewController?.minimumDate = AppEnvironment.current.calendar.date(byAdding: .year, value: -10, to: todayDate)
+    self.dateRangePickerViewController?.minimumDate = AppEnvironment.current.calendar.date(byAdding: .month, value: -76, to: todayDate)
       self.dateRangePickerViewController?.maximumDate = todayDate
   }
   
