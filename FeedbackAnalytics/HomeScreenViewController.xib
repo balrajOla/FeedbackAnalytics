@@ -13,9 +13,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeScreenViewController" customModule="FeedbackAnalytics" customModuleProvider="target">
             <connections>
                 <outlet property="averageRatingLabel" destination="NgB-Do-qfV" id="JdU-Ys-697"/>
+                <outlet property="btnSelectedCategory" destination="fxh-Qf-lWn" id="dcU-FQ-TvQ"/>
                 <outlet property="calendarRangeSelectorBtn" destination="Pbq-IT-Jly" id="L9Z-qb-TqN"/>
                 <outlet property="lineChartRatingCountView" destination="VWF-6r-d4w" id="yDL-op-8mz"/>
                 <outlet property="lineChartView" destination="z11-70-XvF" id="UUs-Mw-fZE"/>
+                <outlet property="splitByDropDown" destination="Ls4-gK-hOn" id="e9Y-9x-Gnz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -80,31 +82,62 @@
                                 <constraint firstAttribute="height" constant="1" id="9PG-xp-ZsF"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Average Rating per Day:-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fja-1G-O5u">
-                            <rect key="frame" x="0.0" y="68.5" width="375" height="9.5"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoJ-R5-mvE">
+                            <rect key="frame" x="0.0" y="68.5" width="375" height="26"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Average Rating per Day:-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fja-1G-O5u">
+                                    <rect key="frame" x="0.0" y="0.0" width="197.5" height="26"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ls4-gK-hOn" userLabel="SplitByDropdown">
+                                    <rect key="frame" x="197.5" y="0.0" width="177.5" height="26"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxh-Qf-lWn">
+                                            <rect key="frame" x="0.0" y="0.0" width="177.5" height="26"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                            <state key="normal" title="Selected Category: None">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="showSplitCategoryBtnClick:" destination="-1" eventType="touchUpInside" id="Ce7-Ro-vfc"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="fxh-Qf-lWn" firstAttribute="top" secondItem="Ls4-gK-hOn" secondAttribute="top" id="OVE-am-FD5"/>
+                                        <constraint firstItem="fxh-Qf-lWn" firstAttribute="leading" secondItem="Ls4-gK-hOn" secondAttribute="leading" id="Wtd-qY-O30"/>
+                                        <constraint firstAttribute="bottom" secondItem="fxh-Qf-lWn" secondAttribute="bottom" id="dHH-xe-LhS"/>
+                                        <constraint firstAttribute="trailing" secondItem="fxh-Qf-lWn" secondAttribute="trailing" id="pKW-QJ-PwR"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Ls4-gK-hOn" firstAttribute="width" secondItem="fja-1G-O5u" secondAttribute="width" constant="-20" id="M7y-85-4ru"/>
+                            </constraints>
+                        </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z11-70-XvF" customClass="LineChartView" customModule="Charts">
-                            <rect key="frame" x="0.0" y="83" width="375" height="269"/>
+                            <rect key="frame" x="0.0" y="99.5" width="375" height="257.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqo-jH-a4L" userLabel="seperator">
-                            <rect key="frame" x="0.0" y="357" width="375" height="1"/>
+                            <rect key="frame" x="0.0" y="362" width="375" height="1"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="hbh-pm-gqZ"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  No. Of Users per Day:-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKL-XD-b5Y">
-                            <rect key="frame" x="0.0" y="363" width="375" height="0.0"/>
+                            <rect key="frame" x="0.0" y="368" width="375" height="6.5"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWF-6r-d4w" userLabel="Line Chart View Count" customClass="LineChartView" customModule="Charts">
-                            <rect key="frame" x="0.0" y="368" width="375" height="269"/>
+                            <rect key="frame" x="0.0" y="379.5" width="375" height="257.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>

@@ -10,5 +10,5 @@ target 'FeedbackAnalytics' do
   pod 'PromiseKit', '6.8.2'
   pod 'CalendarDateRangePickerViewController'
   pod 'Charts', '3.2.2'
-  
+  pod 'DropDown', '2.3.4'
 end

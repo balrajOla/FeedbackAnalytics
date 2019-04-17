@@ -14,6 +14,11 @@ public enum FeedbackDetailsDataError: Error {
   case noData
 }
 
+public enum DataCategory: String {
+  case platform = "Platform"
+  case browser = "Browser"
+}
+
 public class HomeScreenViewModel {
   
   private let feedbackUsecase = FeedbackDetailsUsecase()
@@ -21,6 +26,8 @@ public class HomeScreenViewModel {
   private var defaultStartDate: Int64 = 1358402048
   private var defaultEndDate: Int64 = 1491446293
   private let defaultValue = 0
+  
+  public let splitByList = [DataCategory.platform.rawValue, DataCategory.browser.rawValue]
   
   public func getFeedbackDetailsRatingPerDay(withLabel label: String,
                                              with query: @escaping ([FeedbackItem]) -> Double) -> Promise<LineChartData> {
