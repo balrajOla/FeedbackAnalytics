@@ -25,6 +25,8 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Feedback Analytics"
         self.setSettingsForCalendarView()
+        self.setUpLineChartAverageRatingView()
+        self.setUpLineChartPerCountView()
       
         self.setLineChartDataForRatingAveragePerDay()
         self.setLineChartDataForRatingCountPerDay()
@@ -46,6 +48,44 @@ class HomeScreenViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+  
+  func setUpLineChartAverageRatingView() {
+    self.lineChartView.setViewPortOffsets(left: 0, top: 20, right: 0, bottom: 0)
+    
+    self.lineChartView.dragEnabled = true
+    self.lineChartView.setScaleEnabled(true)
+    self.lineChartView.pinchZoomEnabled = false
+    self.lineChartView.maxHighlightDistance = 300
+    
+    let yAxis = self.lineChartView.leftAxis
+    yAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size:12)!
+    yAxis.setLabelCount(6, force: false)
+    yAxis.labelTextColor = .black
+    yAxis.labelPosition = .insideChart
+    yAxis.axisLineColor = .black
+    
+    self.lineChartView.xAxis.valueFormatter = LineChartViewFormatter()
+    self.lineChartView.xAxis.granularity = 1.0
+  }
+  
+  func setUpLineChartPerCountView() {
+    self.lineChartRatingCountView.setViewPortOffsets(left: 0, top: 20, right: 0, bottom: 0)
+    
+    self.lineChartRatingCountView.dragEnabled = true
+    self.lineChartRatingCountView.setScaleEnabled(true)
+    self.lineChartRatingCountView.pinchZoomEnabled = false
+    self.lineChartRatingCountView.maxHighlightDistance = 300
+    
+    let yAxis = self.lineChartRatingCountView.leftAxis
+    yAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size:12)!
+    yAxis.setLabelCount(6, force: false)
+    yAxis.labelTextColor = .black
+    yAxis.labelPosition = .insideChart
+    yAxis.axisLineColor = .black
+    
+    self.lineChartRatingCountView.xAxis.valueFormatter = LineChartViewFormatter()
+    self.lineChartRatingCountView.xAxis.granularity = 1.0
+  }
   
   func setLineChartDataForRatingAveragePerDay() {
     Loader.show()
