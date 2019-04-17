@@ -56,7 +56,7 @@ class HomeScreenViewController: UIViewController {
     
     // Action triggered on selection
     dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-      print("Selected item: \(item) at index: \(index)")
+      
     }
   }
 }
