@@ -55,17 +55,17 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rgb-XY-Ita">
-                            <rect key="frame" x="0.0" y="41" width="375" height="17"/>
+                            <rect key="frame" x="0.0" y="41" width="375" height="16.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mO-J4-vyo" userLabel="margin">
-                                    <rect key="frame" x="0.0" y="0.0" width="5" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="5" height="16.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="5" id="dIh-s2-ozU"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average rating: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgB-Do-qfV">
-                                    <rect key="frame" x="10" y="0.0" width="365" height="17"/>
+                                    <rect key="frame" x="10" y="0.0" width="365" height="16.5"/>
                                     <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                     <nil key="textColor"/>
@@ -74,25 +74,37 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCk-ph-8Gk" userLabel="seperator">
-                            <rect key="frame" x="0.0" y="63" width="375" height="1"/>
+                            <rect key="frame" x="0.0" y="62.5" width="375" height="1"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="9PG-xp-ZsF"/>
                             </constraints>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Average Rating per Day:-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fja-1G-O5u">
+                            <rect key="frame" x="0.0" y="68.5" width="375" height="9.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z11-70-XvF" customClass="LineChartView" customModule="Charts">
-                            <rect key="frame" x="0.0" y="69" width="375" height="278.5"/>
+                            <rect key="frame" x="0.0" y="83" width="375" height="269"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqo-jH-a4L" userLabel="seperator">
-                            <rect key="frame" x="0.0" y="352.5" width="375" height="1"/>
+                            <rect key="frame" x="0.0" y="357" width="375" height="1"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="hbh-pm-gqZ"/>
                             </constraints>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  No. Of Users per Day:-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKL-XD-b5Y">
+                            <rect key="frame" x="0.0" y="363" width="375" height="0.0"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWF-6r-d4w" userLabel="Line Chart View Count" customClass="LineChartView" customModule="Charts">
-                            <rect key="frame" x="0.0" y="358.5" width="375" height="278.5"/>
+                            <rect key="frame" x="0.0" y="368" width="375" height="269"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
