@@ -42,7 +42,6 @@ public class HomeScreenViewModel {
           })
           .reduce([ChartDataEntry]()) { (res, item) -> [ChartDataEntry] in
             var result = res
-            print("Date: \(item.0.timeIntervalSince1970), value: \(item.1)")
             result.append(ChartDataEntry(x: item.0.timeIntervalSince1970, y: item.1))
             
             return result
@@ -87,23 +86,5 @@ public class HomeScreenViewModel {
         let chartData = LineChartData(dataSet: chartDataSet)
         return chartData
       }
-  }
-  
-  private func createBarChartData(from data: ([BarChartDataEntry], [UIColor])) -> BarChartData {
-    let barWidth = 1.0
-    
-    let barChartDataSet = BarChartDataSet(values: data.0, label: "Per Platform Rating Count")
-    barChartDataSet.colors = data.1
-    
-    let barChartData = BarChartData(dataSet: barChartDataSet)
-    barChartData.barWidth = barWidth
-    barChartData.setValueFont(UIFont(name:"HelveticaNeue-Light", size:10)!)
-    return barChartData
-  }
-  
-  private func createPieChartData(from data: ([PieChartDataEntry], [UIColor])) -> PieChartData {
-    let pieChartDataSet = PieChartDataSet(values: data.0, label: "Per Rating Count")
-    pieChartDataSet.colors = data.1
-    return PieChartData(dataSet: pieChartDataSet)
   }
 }

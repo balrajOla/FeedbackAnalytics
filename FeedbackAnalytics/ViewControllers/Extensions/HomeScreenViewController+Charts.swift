@@ -6,7 +6,8 @@
 //  Copyright © 2019 balraj. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import Charts
 
 extension HomeScreenViewController {
   func setUpLineChartAverageRatingView() {
