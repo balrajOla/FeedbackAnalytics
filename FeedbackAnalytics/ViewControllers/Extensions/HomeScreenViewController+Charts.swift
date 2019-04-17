@@ -52,7 +52,7 @@ extension HomeScreenViewController {
   
   func setLineChartDataForRatingAveragePerDay() {
     Loader.show()
-    viewModel.getFeedbackDetailsInfoPerDay(withLabel: "Emotional trendline",with: { value -> Double in (value.map { $0.rating }).average })
+    viewModel.getFeedbackDetailsRatingPerDay(withLabel: "Emotional trendline",with: { value -> Double in (value.map { $0.rating }).average })
       .done(on: DispatchQueue.main) { (result) in
         self.lineChartView.data = result
         self.lineChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
@@ -66,7 +66,7 @@ extension HomeScreenViewController {
   
   func setLineChartDataForRatingCountPerDay() {
     Loader.show()
-    viewModel.getFeedbackDetailsInfoPerDay(withLabel: "Feedback items", with: { value -> Double in Double(value.count) })
+    viewModel.getFeedbackDetailsRatingPerDay(withLabel: "Feedback items", with: { value -> Double in Double(value.count) })
       .done(on: DispatchQueue.main) { (result) in
         self.lineChartRatingCountView.data = result
         self.lineChartRatingCountView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
