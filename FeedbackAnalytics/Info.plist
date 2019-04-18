@@ -25,6 +25,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This is used to save graph report</string>
 	<key>UILaunchStoryboardName</key>
 	<string>HomeScreenViewController</string>
 	<key>UIRequiredDeviceCapabilities</key>

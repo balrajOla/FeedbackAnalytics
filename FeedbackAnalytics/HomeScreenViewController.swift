@@ -24,27 +24,45 @@ class HomeScreenViewController: UIViewController {
   public let viewModel = HomeScreenViewModel()
   
   var dateRangePickerViewController: CalendarDateRangePickerViewController?
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Feedback Analytics"
     self.setSettingsForCalendarView()
     self.setUpLineChartAverageRatingView()
     self.setUpLineChartPerCountView()
-      
+    
     self.setLineChartDataForRatingAveragePerDay()
     self.setLineChartDataForRatingCountPerDay()
     self.updateCalendarSelectionBtnLabel()
     self.setAverageRating()
     self.setUpSplitByDropdown()
+    self.setUpRightNavigationBarButton()
   }
-
+  
   @IBAction func didCalendarTapped(_ sender: Any) {
     self.presentCalendarView()
   }
   
   @IBAction func showSplitCategoryBtnClick(_ sender: Any) {
     self.dropDown.show()
+  }
+  
+  func setUpRightNavigationBarButton() {
+    let saveReport = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveReportBtnTap))
+    self.navigationItem.rightBarButtonItem = saveReport
+  }
+  
+  @objc func saveReportBtnTap() {
+    self.lineChartRatingCountView.getChartImage(transparent: false).map {
+      UIImageWriteToSavedPhotosAlbum($0, nil, nil, nil)
+    }
+    
+    self.lineChartView.getChartImage(transparent: false).map {
+      UIImageWriteToSavedPhotosAlbum($0, nil, nil, nil)
+    }
+    
+    self.showToast(message: "Graphs image has been saved to gallery...")
   }
   
   func setUpSplitByDropdown() {
