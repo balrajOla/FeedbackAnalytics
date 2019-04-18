@@ -79,7 +79,9 @@ extension HomeScreenViewController {
   }
   
   func setLineChartDataForRatingAveragePerDay(withSplit spiltBy: DataCategory = DataCategory.none) {
-    Loader.show()
+    DispatchQueue.main.async {
+      Loader.show()
+    }
     viewModel.getFeedbackDetailsRatingPerDay(withLabel: "Emotional trendline",
                                              withSplitBy: spiltBy,
                                              with: { value -> Double in (value.map { $0.rating }).average })
@@ -90,12 +92,16 @@ extension HomeScreenViewController {
         self.lineChartView.data = nil
       }
       .finally {
-        Loader.hide()
+        DispatchQueue.main.async {
+          Loader.hide()
+        }
     }
   }
   
   func setLineChartDataForRatingCountPerDay(withSplit spiltBy: DataCategory = DataCategory.none) {
-    Loader.show()
+    DispatchQueue.main.async {
+      Loader.show()
+    }
     viewModel.getFeedbackDetailsRatingPerDay(withLabel: "Feedback items",
                                              withSplitBy: spiltBy,
                                              with: { value -> Double in Double(value.count) })
@@ -106,7 +112,9 @@ extension HomeScreenViewController {
         self.lineChartRatingCountView.data = nil
       }
       .finally {
-        Loader.hide()
+        DispatchQueue.main.async {
+          Loader.hide()
+        }
     }
   }
   

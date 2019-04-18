@@ -19,7 +19,7 @@ class Loader {
     self.hide()
     let frame = CGRect(x: 0, y: 0, width: 50, height: 50)
     self.pulseView = PulseAnimationView(frame: frame)
-    self.pulseView?.center = CGPoint(x: window.center.x , y: window.bounds.height - 100) 
+    self.pulseView?.center = CGPoint(x: window.center.x , y: window.bounds.height/2) 
     self.pulseView.map { window.addSubview($0) }
     self.pulseView?.startAnimating()
     self.pulseView.map { window.bringSubviewToFront($0) }
