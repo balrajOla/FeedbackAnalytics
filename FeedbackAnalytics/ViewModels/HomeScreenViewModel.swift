@@ -25,13 +25,13 @@ public class HomeScreenViewModel {
   private let feedbackUsecase = FeedbackDetailsUsecase()
   
   private var defaultStartDate: Int64 = 1358402048
-  private var defaultEndDate: Int64 = 1491446293
+  private var defaultEndDate: Int64 = 1391745497
   private let defaultValue = 0
   
   public let splitByList = [DataCategory.none.rawValue, DataCategory.platform.rawValue, DataCategory.browser.rawValue]
   
   public func getFeedbackDetailsRatingPerDay(withLabel label: String,
-                                             withSplitBy splitBy: DataCategory = DataCategory.none,
+                                             withSplitBy splitBy: DataCategory,
                                              with query: @escaping ([FeedbackItem]) -> Double) -> Promise<LineChartData> {
     let splitByFn = self.getSplitFunction(forSplit: splitBy)
     let feebackDetailsGroupByDate = self.feedbackUsecase.getFeedbackDetails()

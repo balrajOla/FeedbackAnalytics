@@ -56,7 +56,14 @@ class HomeScreenViewController: UIViewController {
     
     // Action triggered on selection
     dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-      
+      let splitByCategory = DataCategory(rawValue: item) ?? DataCategory.none
+      self.updateSplitByBtnText(withSplitBy: splitByCategory)
+      self.setLineChartDataForRatingAveragePerDay(withSplit: splitByCategory)
+      self.setLineChartDataForRatingCountPerDay(withSplit: splitByCategory)
     }
+  }
+  
+  func updateSplitByBtnText(withSplitBy splitBy: DataCategory = DataCategory.none) {
+    self.btnSelectedCategory.setTitle("Split By: \(splitBy.rawValue)", for: .normal)
   }
 }

@@ -24,7 +24,7 @@ public struct FeedbackQuery {
   }
   
   public static let groupByNone = { () -> Reader<[FeedbackItem], [String : [FeedbackItem]]> in
-    return Reader { value in ["None": value] }
+    return Reader { value in ["All": value] }
   }
   
   public static let groupByCreatedDate = { () -> Reader<[FeedbackItem], [Date : [FeedbackItem]]> in

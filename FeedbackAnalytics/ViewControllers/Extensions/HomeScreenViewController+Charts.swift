@@ -14,10 +14,10 @@ extension HomeScreenViewController {
     self.lineChartView.setViewPortOffsets(left: 10, top: 20, right: 20, bottom: 10)
     
     self.lineChartView.dragEnabled = true
-    self.lineChartView.setScaleEnabled(true)
-    self.lineChartView.pinchZoomEnabled = false
+    self.lineChartView.setScaleEnabled(false)
+    self.lineChartView.pinchZoomEnabled = true
     self.lineChartView.maxHighlightDistance = 300
-    self.lineChartView.legend.enabled = false
+    self.lineChartView.legend.enabled = true
     
     let yAxis = self.lineChartView.leftAxis
     yAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size:12)!
@@ -34,10 +34,10 @@ extension HomeScreenViewController {
     self.lineChartRatingCountView.setViewPortOffsets(left: 10, top: 20, right: 20, bottom: 10)
     
     self.lineChartRatingCountView.dragEnabled = true
-    self.lineChartRatingCountView.setScaleEnabled(true)
-    self.lineChartRatingCountView.pinchZoomEnabled = false
+    self.lineChartRatingCountView.setScaleEnabled(false)
+    self.lineChartRatingCountView.pinchZoomEnabled = true
     self.lineChartRatingCountView.maxHighlightDistance = 300
-    self.lineChartRatingCountView.legend.enabled = false
+    self.lineChartRatingCountView.legend.enabled = true
     
     let yAxis = self.lineChartRatingCountView.leftAxis
     yAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size:12)!
@@ -50,9 +50,11 @@ extension HomeScreenViewController {
     self.lineChartRatingCountView.xAxis.granularity = 1.0
   }
   
-  func setLineChartDataForRatingAveragePerDay() {
+  func setLineChartDataForRatingAveragePerDay(withSplit spiltBy: DataCategory = DataCategory.none) {
     Loader.show()
-    viewModel.getFeedbackDetailsRatingPerDay(withLabel: "Emotional trendline",with: { value -> Double in (value.map { $0.rating }).average })
+    viewModel.getFeedbackDetailsRatingPerDay(withLabel: "Emotional trendline",
+                                             withSplitBy: spiltBy,
+                                             with: { value -> Double in (value.map { $0.rating }).average })
       .done(on: DispatchQueue.main) { (result) in
         self.lineChartView.data = result
         self.lineChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
@@ -64,9 +66,11 @@ extension HomeScreenViewController {
     }
   }
   
-  func setLineChartDataForRatingCountPerDay() {
+  func setLineChartDataForRatingCountPerDay(withSplit spiltBy: DataCategory = DataCategory.none) {
     Loader.show()
-    viewModel.getFeedbackDetailsRatingPerDay(withLabel: "Feedback items", with: { value -> Double in Double(value.count) })
+    viewModel.getFeedbackDetailsRatingPerDay(withLabel: "Feedback items",
+                                             withSplitBy: spiltBy,
+                                             with: { value -> Double in Double(value.count) })
       .done(on: DispatchQueue.main) { (result) in
         self.lineChartRatingCountView.data = result
         self.lineChartRatingCountView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
