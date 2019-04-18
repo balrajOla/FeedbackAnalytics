@@ -8,14 +8,6 @@
 
 import Foundation
 
-public struct FeedbackDetails {
-  public let items: [FeedbackItem]
-  
-  public init(details: FeedbackDetailsResponse) {
-    self.items = details.items.map(FeedbackItem.init(item:))
-  }
-}
-
 public struct FeedbackItem {
   public let browser: String
   public let version: Float
