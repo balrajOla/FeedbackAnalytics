@@ -18,9 +18,9 @@ extension HomeScreenViewModel {
           .map(on: DispatchQueue.global(qos: .utility)) { (response: [FeedbackItem]) -> [String: [Date : [FeedbackItem]]] in
             return response
               |> ((between
-                |> FeedbackQuery.filterByDate)
-                >>>= FeedbackQuery.groupByPlatform().run
-                >>=> FeedbackQuery.groupByCreatedDate().run).run
+                |> FeedbackQueryUsecase.filterByDate)
+                >>>= FeedbackQueryUsecase.groupByPlatform().run
+                >>=> FeedbackQueryUsecase.groupByCreatedDate().run).run
         }
       }
   }
@@ -33,9 +33,9 @@ extension HomeScreenViewModel {
           .map(on: DispatchQueue.global(qos: .utility)) { (response: [FeedbackItem]) -> [String: [Date : [FeedbackItem]]] in
             return response
               |> ((between
-                |> FeedbackQuery.filterByDate)
-                >>>= FeedbackQuery.groupByBrowser().run
-                >>=> FeedbackQuery.groupByCreatedDate().run).run
+                |> FeedbackQueryUsecase.filterByDate)
+                >>>= FeedbackQueryUsecase.groupByBrowser().run
+                >>=> FeedbackQueryUsecase.groupByCreatedDate().run).run
         }
       }
   }
@@ -48,9 +48,9 @@ extension HomeScreenViewModel {
           .map(on: DispatchQueue.global(qos: .utility)) { (response: [FeedbackItem]) -> [String: [Date : [FeedbackItem]]] in
             return response
               |> ((between
-                |> FeedbackQuery.filterByDate)
-                >>>= FeedbackQuery.groupByNone().run
-                >>=> FeedbackQuery.groupByCreatedDate().run).run
+                |> FeedbackQueryUsecase.filterByDate)
+                >>>= FeedbackQueryUsecase.groupByNone().run
+                >>=> FeedbackQueryUsecase.groupByCreatedDate().run).run
         }
       }
   }
@@ -63,7 +63,7 @@ extension HomeScreenViewModel {
           .map(on: DispatchQueue.global(qos: .utility)) { (response: [FeedbackItem]) -> [FeedbackItem] in
             return response
               |> (between
-                |> FeedbackQuery.filterByDate).run
+                |> FeedbackQueryUsecase.filterByDate).run
         }
       }
   }

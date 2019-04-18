@@ -1,5 +1,5 @@
 //
-//  FeedbackQuery.swift
+//  FeedbackQueryUsecase.swift
 //  FeedbackAnalytics
 //
 //  Created by Balraj Singh on 14/04/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct FeedbackQuery {
+public struct FeedbackQueryUsecase {
   public static let filterByDate = { (dateRange: (startDate: Int64, endDate: Int64)) -> Reader<[FeedbackItem], [FeedbackItem]> in
     return filter(isIncluded: { item -> Bool in
       return (dateRange.startDate <= Int64(item.createdDate.timeIntervalSince1970)) && (Int64(item.createdDate.timeIntervalSince1970) < dateRange.endDate)
