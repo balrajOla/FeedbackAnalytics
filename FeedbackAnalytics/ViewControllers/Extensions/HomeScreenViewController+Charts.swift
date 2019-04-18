@@ -19,6 +19,20 @@ extension HomeScreenViewController {
     self.lineChartView.maxHighlightDistance = 300
     self.lineChartView.legend.enabled = true
     
+    self.lineChartView.chartDescription?.enabled = false
+    
+    self.lineChartView.leftAxis.enabled = false
+    self.lineChartView.rightAxis.drawAxisLineEnabled = false
+    self.lineChartView.xAxis.drawAxisLineEnabled = false
+    
+    self.lineChartView.drawBordersEnabled = false
+    
+    let l = self.lineChartView.legend
+    l.horizontalAlignment = .left
+    l.verticalAlignment = .bottom
+    l.orientation = .horizontal
+    l.drawInside = false
+    
     let yAxis = self.lineChartView.leftAxis
     yAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size:12)!
     yAxis.setLabelCount(6, force: false)
@@ -38,6 +52,20 @@ extension HomeScreenViewController {
     self.lineChartRatingCountView.pinchZoomEnabled = true
     self.lineChartRatingCountView.maxHighlightDistance = 300
     self.lineChartRatingCountView.legend.enabled = true
+    
+    self.lineChartRatingCountView.chartDescription?.enabled = false
+    
+    self.lineChartRatingCountView.leftAxis.enabled = false
+    self.lineChartRatingCountView.rightAxis.drawAxisLineEnabled = false
+    self.lineChartRatingCountView.xAxis.drawAxisLineEnabled = false
+    
+    self.lineChartRatingCountView.drawBordersEnabled = false
+    
+    let l = self.lineChartRatingCountView.legend
+    l.horizontalAlignment = .left
+    l.verticalAlignment = .bottom
+    l.orientation = .horizontal
+    l.drawInside = false
     
     let yAxis = self.lineChartRatingCountView.leftAxis
     yAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size:12)!
