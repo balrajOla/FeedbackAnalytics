@@ -36,6 +36,7 @@ precedencegroup LeftApplyPrecedence {
 
 infix operator >>= : LeftApplyPrecedence
 infix operator >>>= : LeftApplyPrecedence
+infix operator >>=> : LeftApplyPrecedence
 
 func >>= <E, A, B>(a: Reader<E, A>, f: @escaping (A) -> Reader<E, B>) -> Reader<E, B> {
   return a.flatMap(f)
@@ -44,3 +45,9 @@ func >>= <E, A, B>(a: Reader<E, A>, f: @escaping (A) -> Reader<E, B>) -> Reader<
 func >>>= <E, A, B>(a: Reader<E, A>, f: @escaping (A) -> B) -> Reader<E, B> {
   return a.map(f)
 }
+
+func >>=> <E, A, B, C>(a: Reader<E, [A: B]>, f: @escaping (B) -> [C: B]) -> Reader<E, [A: [C: B]]> {
+  return a.map { $0.mapValues(f) }
+}
+
+

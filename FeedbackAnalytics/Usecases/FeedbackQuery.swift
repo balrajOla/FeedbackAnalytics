@@ -19,6 +19,14 @@ public struct FeedbackQuery {
     return groupBy(\FeedbackItem.platform)
   }
   
+  public static let groupByBrowser = { () -> Reader<[FeedbackItem], [String : [FeedbackItem]]> in
+    return groupBy(\FeedbackItem.browser)
+  }
+  
+  public static let groupByNone = { () -> Reader<[FeedbackItem], [String : [FeedbackItem]]> in
+    return Reader { value in ["None": value] }
+  }
+  
   public static let groupByCreatedDate = { () -> Reader<[FeedbackItem], [Date : [FeedbackItem]]> in
     return groupBy(\FeedbackItem.createdDate)
   }

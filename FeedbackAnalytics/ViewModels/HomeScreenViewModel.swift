@@ -31,10 +31,11 @@ public class HomeScreenViewModel {
   public let splitByList = [DataCategory.none.rawValue, DataCategory.platform.rawValue, DataCategory.browser.rawValue]
   
   public func getFeedbackDetailsRatingPerDay(withLabel label: String,
+                                             withSplitBy splitBy: DataCategory = DataCategory.none,
                                              with query: @escaping ([FeedbackItem]) -> Double) -> Promise<LineChartData> {
+    let splitByFn = self.getSplitFunction(forSplit: splitBy)
     let feebackDetailsGroupByDate = self.feedbackUsecase.getFeedbackDetails()
-      |> self.feedbackDetailsGroupedByDates(feedbackDetails:)
-    let createLineChartDataWithLabel = self.createLineChartData(withLabel: label)
+                                    |> splitByFn
     
     return ((startDate: defaultStartDate, endDate: defaultEndDate)
       |> feebackDetailsGroupByDate)
@@ -43,32 +44,37 @@ public class HomeScreenViewModel {
           throw FeedbackDetailsDataError.noData
         }
         
-        return response.map { item -> (Date, Double) in
-          return (item.key, query(item.value))
-          }.sorted(by: { (valueOne, valueSecond) -> Bool in
-            return valueOne.0 < valueSecond.0
-          })
-          .reduce([ChartDataEntry]()) { (res, item) -> [ChartDataEntry] in
+        return response.mapValues {
+          return $0.map { item -> (Date, Double) in
+            return (item.key, query(item.value))
+            }.sorted(by: { (valueOne, valueSecond) -> Bool in
+              return valueOne.0 < valueSecond.0
+            })
+          }.reduce([String: [ChartDataEntry]]()) { (res, item) -> [String: [ChartDataEntry]] in
             var result = res
-            result.append(ChartDataEntry(x: item.0.timeIntervalSince1970, y: item.1))
-            
+            result[item.key] = item.value.reduce([ChartDataEntry]()) { (res, item) -> [ChartDataEntry] in
+              var result = res
+              result.append(ChartDataEntry(x: item.0.timeIntervalSince1970, y: item.1))
+              
+              return result
+            }
             return result
           }
-          |> createLineChartDataWithLabel
+          |> self.createLineChartData
     }
   }
   
   public func getAverageRatingForSelectedRange() -> Promise<Double> {
     return
       ((startDate: defaultStartDate, endDate: defaultEndDate)
-      |> (self.feedbackUsecase.getFeedbackDetails()
-      |> self.feedbackDetailsFilterByDates(feedbackDetails:)))
-      .map{
-        guard $0.count > 0 else {
-          throw FeedbackDetailsDataError.noData
-        }
-        
-        return ($0.map{ $0.rating }).average }
+        |> (self.feedbackUsecase.getFeedbackDetails()
+          |> self.feedbackDetailsFilterByDates(feedbackDetails:)))
+        .map{
+          guard $0.count > 0 else {
+            throw FeedbackDetailsDataError.noData
+          }
+          
+          return ($0.map{ $0.rating }).average }
   }
   
   public func getBetweenDates() -> (startDate: Date, endDate: Date) {
@@ -81,18 +87,29 @@ public class HomeScreenViewModel {
   }
   
   //MARK: Private Function
-  private func createLineChartData(withLabel label: String)
-    -> (_ data: [ChartDataEntry])
-    -> LineChartData {
-      return { (data: [ChartDataEntry])
-        -> LineChartData in
-        let color = UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1)
-        
-        let chartDataSet = LineChartDataSet(values: data, label: label)
-        chartDataSet.colors = [color]
-        
-        let chartData = LineChartData(dataSet: chartDataSet)
-        return chartData
+  private func getSplitFunction(forSplit splitCategory: DataCategory)
+    -> (_ feedbackDetail: Promise<[FeedbackItem]>)
+    -> ((startDate: Int64, endDate: Int64))
+    -> Promise<[String : [Date : [FeedbackItem]]]> {
+      return { (feedbackDetail: Promise<[FeedbackItem]>)
+        -> ((startDate: Int64, endDate: Int64))
+        -> Promise<[String : [Date : [FeedbackItem]]]> in
+        switch splitCategory {
+        case .none:
+          return self.feedbackDetailsGroupedByDates(feedbackDetails: feedbackDetail)
+        case .platform:
+          return self.feedbackDetailsGroupedByPlatform(feedbackDetails: feedbackDetail)
+        case .browser:
+          return self.feedbackDetailsGroupedByBrowser(feedbackDetails: feedbackDetail)
+        }
       }
+  }
+  private func createLineChartData (_ data: [String: [ChartDataEntry]]) -> LineChartData {
+      return data.map { data -> LineChartDataSet in
+        let color = UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1)
+        let chartDataSet = LineChartDataSet(values: data.value, label: data.key)
+        chartDataSet.colors = [color]
+        return chartDataSet }
+        |> LineChartData.init(dataSets:)
   }
 }
