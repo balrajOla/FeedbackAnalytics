@@ -26,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MiD-t3-teW">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="MiD-t3-teW">
                     <rect key="frame" x="0.0" y="25" width="375" height="637"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbq-IT-Jly" userLabel="DateRangeBtn">
@@ -50,24 +50,24 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxh-7D-nzD" userLabel="seperator">
-                            <rect key="frame" x="0.0" y="35" width="375" height="1"/>
+                            <rect key="frame" x="0.0" y="33" width="375" height="1"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="Zap-dE-0fQ"/>
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rgb-XY-Ita">
-                            <rect key="frame" x="0.0" y="41" width="375" height="16.5"/>
+                            <rect key="frame" x="0.0" y="37" width="375" height="23.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mO-J4-vyo" userLabel="margin">
-                                    <rect key="frame" x="0.0" y="0.0" width="5" height="16.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="5" height="23.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="5" id="dIh-s2-ozU"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average rating: --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgB-Do-qfV">
-                                    <rect key="frame" x="10" y="0.0" width="365" height="16.5"/>
+                                    <rect key="frame" x="10" y="0.0" width="365" height="23.5"/>
                                     <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,14 +76,14 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCk-ph-8Gk" userLabel="seperator">
-                            <rect key="frame" x="0.0" y="62.5" width="375" height="1"/>
+                            <rect key="frame" x="0.0" y="63.5" width="375" height="1"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="9PG-xp-ZsF"/>
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoJ-R5-mvE">
-                            <rect key="frame" x="0.0" y="68.5" width="375" height="27"/>
+                            <rect key="frame" x="0.0" y="67.5" width="375" height="27"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Average Rating per Day:-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fja-1G-O5u">
                                     <rect key="frame" x="0.0" y="0.0" width="197.5" height="27"/>
@@ -120,18 +120,18 @@
                             </constraints>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z11-70-XvF" customClass="LineChartView" customModule="Charts">
-                            <rect key="frame" x="0.0" y="100.5" width="375" height="257.5"/>
+                            <rect key="frame" x="0.0" y="97.5" width="375" height="257.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqo-jH-a4L" userLabel="seperator">
-                            <rect key="frame" x="0.0" y="363" width="375" height="1"/>
+                            <rect key="frame" x="0.0" y="358" width="375" height="1"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="hbh-pm-gqZ"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  No. Of Users per Day:-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKL-XD-b5Y">
-                            <rect key="frame" x="0.0" y="369" width="375" height="5.5"/>
+                            <rect key="frame" x="0.0" y="362" width="375" height="14.5"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>

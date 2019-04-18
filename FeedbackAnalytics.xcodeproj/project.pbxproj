@@ -36,6 +36,7 @@
 		A242430022633EE000B08683 /* FeedbackDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242FF22633EE000B08683 /* FeedbackDetails.swift */; };
 		A27B07DD2266EC3700377D07 /* LineChartViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07DC2266EC3700377D07 /* LineChartViewFormatter.swift */; };
 		A27B07DF2266F3D300377D07 /* HomeScreenViewController+Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07DE2266F3D300377D07 /* HomeScreenViewController+Charts.swift */; };
+		A27B07E12268661700377D07 /* ColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07E02268661700377D07 /* ColorGenerator.swift */; };
 		A2F3C0E322639ACF00A824D6 /* FeedbackQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */; };
 		A2F3C0E72264197200A824D6 /* HomeScreenViewController+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E62264197200A824D6 /* HomeScreenViewController+Calendar.swift */; };
 		A2F3C0E922641B9E00A824D6 /* DateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */; };
@@ -80,6 +81,7 @@
 		A24242FF22633EE000B08683 /* FeedbackDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetails.swift; sourceTree = "<group>"; };
 		A27B07DC2266EC3700377D07 /* LineChartViewFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewFormatter.swift; sourceTree = "<group>"; };
 		A27B07DE2266F3D300377D07 /* HomeScreenViewController+Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewController+Charts.swift"; sourceTree = "<group>"; };
+		A27B07E02268661700377D07 /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
 		A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackQuery.swift; sourceTree = "<group>"; };
 		A2F3C0E62264197200A824D6 /* HomeScreenViewController+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewController+Calendar.swift"; sourceTree = "<group>"; };
 		A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProtocol.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				A24242FD2263144700B08683 /* Sequence+Reader.swift */,
 				A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */,
 				A2F3C0F32265A0CC00A824D6 /* Collection+Average.swift */,
+				A27B07E02268661700377D07 /* ColorGenerator.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				A2F3C0E72264197200A824D6 /* HomeScreenViewController+Calendar.swift in Sources */,
 				A24242C32261E3F100B08683 /* FACache.swift in Sources */,
 				A2F3C0EE2264E94A00A824D6 /* HomeScreenViewModel.swift in Sources */,
+				A27B07E12268661700377D07 /* ColorGenerator.swift in Sources */,
 				A24242A32261C5F300B08683 /* Route.swift in Sources */,
 				A24242B82261C69800B08683 /* ToastMessage.swift in Sources */,
 				A242428D22611D0F00B08683 /* HomeScreenViewController.swift in Sources */,

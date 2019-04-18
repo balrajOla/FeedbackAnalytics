@@ -106,17 +106,13 @@ public class HomeScreenViewModel {
   }
   private func createLineChartData (_ data: [String: [ChartDataEntry]]) -> LineChartData {
       return data.map { data -> LineChartDataSet in
-        let color = UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1)
-        let fillColor = UIColor(red: CGFloat(Double(arc4random_uniform(256))/255), green: CGFloat(Double(arc4random_uniform(256))/255), blue: CGFloat(Double(arc4random_uniform(256))/255), alpha: 1)
         let chartDataSet = LineChartDataSet(values: data.value, label: data.key)
-        chartDataSet.colors = [color]
-        chartDataSet.fillColor = fillColor
+        chartDataSet.colors = [generateRandomColor()]
+        chartDataSet.fillColor = generateRandomColor()
         chartDataSet.highlightEnabled = true
         chartDataSet.highlightColor = UIColor.gray
-        chartDataSet.circleColors = [color]
-        chartDataSet.lineWidth = 4
-        chartDataSet.circleRadius = 2
-        chartDataSet.circleHoleRadius = 1
+        chartDataSet.circleColors = [generateRandomColor()]
+        chartDataSet.lineWidth = 3
         chartDataSet.drawValuesEnabled = false
         chartDataSet.drawCirclesEnabled = false
         chartDataSet.drawCircleHoleEnabled = false
