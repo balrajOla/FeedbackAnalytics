@@ -31,7 +31,7 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbq-IT-Jly" userLabel="DateRangeBtn">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="5ls-op-a2v"/>
                             </constraints>
@@ -106,7 +106,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="fxh-Qf-lWn" firstAttribute="top" secondItem="Ls4-gK-hOn" secondAttribute="top" id="OVE-am-FD5"/>
                                         <constraint firstItem="fxh-Qf-lWn" firstAttribute="leading" secondItem="Ls4-gK-hOn" secondAttribute="leading" id="Wtd-qY-O30"/>
@@ -148,7 +148,7 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="MiD-t3-teW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8LZ-gU-iAK"/>
                 <constraint firstItem="MiD-t3-teW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="dGd-CW-Jhm"/>
