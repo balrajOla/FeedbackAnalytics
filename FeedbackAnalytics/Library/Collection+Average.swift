@@ -15,7 +15,7 @@ extension Collection where Element: Numeric {
 extension Collection where Element: BinaryInteger {
   /// Returns the average of all elements in the array
   var average: Double {
-    return isEmpty ? 0 : Double(total) / Double(count)
+    return isEmpty ? 0 : (Double(total) / Double(count)).rounded(toPlaces: 2)
   }
 }
 

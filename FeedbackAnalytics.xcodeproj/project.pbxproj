@@ -37,6 +37,7 @@
 		A27B07DD2266EC3700377D07 /* LineChartViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07DC2266EC3700377D07 /* LineChartViewFormatter.swift */; };
 		A27B07DF2266F3D300377D07 /* HomeScreenViewController+Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07DE2266F3D300377D07 /* HomeScreenViewController+Charts.swift */; };
 		A27B07E12268661700377D07 /* ColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07E02268661700377D07 /* ColorGenerator.swift */; };
+		A27B07E32268934200377D07 /* Double+RoundValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07E22268934200377D07 /* Double+RoundValue.swift */; };
 		A2F3C0E322639ACF00A824D6 /* FeedbackQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */; };
 		A2F3C0E72264197200A824D6 /* HomeScreenViewController+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E62264197200A824D6 /* HomeScreenViewController+Calendar.swift */; };
 		A2F3C0E922641B9E00A824D6 /* DateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */; };
@@ -82,6 +83,7 @@
 		A27B07DC2266EC3700377D07 /* LineChartViewFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewFormatter.swift; sourceTree = "<group>"; };
 		A27B07DE2266F3D300377D07 /* HomeScreenViewController+Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewController+Charts.swift"; sourceTree = "<group>"; };
 		A27B07E02268661700377D07 /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
+		A27B07E22268934200377D07 /* Double+RoundValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+RoundValue.swift"; sourceTree = "<group>"; };
 		A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackQuery.swift; sourceTree = "<group>"; };
 		A2F3C0E62264197200A824D6 /* HomeScreenViewController+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewController+Calendar.swift"; sourceTree = "<group>"; };
 		A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProtocol.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				A2F3C0E822641B9E00A824D6 /* DateProtocol.swift */,
 				A2F3C0F32265A0CC00A824D6 /* Collection+Average.swift */,
 				A27B07E02268661700377D07 /* ColorGenerator.swift */,
+				A27B07E22268934200377D07 /* Double+RoundValue.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				A27B07DF2266F3D300377D07 /* HomeScreenViewController+Charts.swift in Sources */,
 				A24242BA2261C69800B08683 /* Operators.swift in Sources */,
 				A24242C02261C69800B08683 /* Loader.swift in Sources */,
+				A27B07E32268934200377D07 /* Double+RoundValue.swift in Sources */,
 				A24242BE2261C69800B08683 /* UICollectionView+RegisterCells.swift in Sources */,
 				A24242FE2263144800B08683 /* Sequence+Reader.swift in Sources */,
 				A24242B92261C69800B08683 /* Network.swift in Sources */,
