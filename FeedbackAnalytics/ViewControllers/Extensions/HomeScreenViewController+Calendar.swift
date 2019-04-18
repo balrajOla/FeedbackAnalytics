@@ -10,6 +10,7 @@ import Foundation
 import CalendarDateRangePickerViewController
 
 extension HomeScreenViewController: CalendarDateRangePickerViewControllerDelegate {
+  
   func setSettingsForCalendarView() {
     self.dateRangePickerViewController = CalendarDateRangePickerViewController(collectionViewLayout: UICollectionViewFlowLayout())
     self.dateRangePickerViewController?.delegate = self
@@ -30,11 +31,11 @@ extension HomeScreenViewController: CalendarDateRangePickerViewControllerDelegat
   }
   
   // MARK: CalendarDateRangePickerViewControllerDelegate
-  func didTapCancel() {
+  func didCancelPickingDateRange() {
     self.dateRangePickerViewController?.dismiss(animated: true, completion: nil)
   }
   
-  func didTapDoneWithDateRange(startDate: Date!, endDate: Date!) {
+  func didPickDateRange(startDate: Date!, endDate: Date!) {
     self.viewModel.setBetweenDate(startDate: startDate, endDate: endDate)
     self.updateCalendarSelectionBtnLabel()
     self.setLineChartDataForRatingAveragePerDay()
