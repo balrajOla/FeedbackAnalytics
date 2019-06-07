@@ -22,49 +22,37 @@ public enum DataCategory: String {
 
 public class HomeScreenViewModel {
     
-    private let feedbackUsecase = FeedbackDetailsUsecase()
+    private let feedbackUsecase: FeedbackDetailsUsecaseProtocol
+    private let dataProcessingUsecase: FeedbackDetailsDataProcessingUsecaseProtocol
     
     private var defaultStartDate: Int64 = 1388534400
     private var defaultEndDate: Int64 = 1391745497
     private let defaultValue = 0
-    private let usecase: FeedbackDetailsDataProcessingUsecase
     
     public let splitByList = [DataCategory.none.rawValue, DataCategory.platform.rawValue, DataCategory.browser.rawValue]
     
-    init(usecase: FeedbackDetailsDataProcessingUsecase) {
-        self.usecase = usecase
+    init(dataProcessingUsecase: FeedbackDetailsDataProcessingUsecaseProtocol,
+         feedbackUsecase: FeedbackDetailsUsecaseProtocol) {
+        self.dataProcessingUsecase = dataProcessingUsecase
+        self.feedbackUsecase = feedbackUsecase
     }
     
     public func getFeedbackDetailsRatingPerDay(withLabel label: String,
                                                withSplitBy splitBy: DataCategory,
                                                with query: @escaping ([FeedbackItem]) -> Double) -> Promise<LineChartData> {
         let splitByFn = self.getSplitFunction(forSplit: splitBy)
-        let feebackDetailsGroupByDate = self.feedbackUsecase.getFeedbackDetails()
-            |> splitByFn
+        let feebackDetailsGroupByDate = self.feedbackUsecase.getFeedbackDetails() |> splitByFn
+        let mapAndSortWithQuery = self.mapAndSort(with: query)
         
-        return ((startDate: defaultStartDate, endDate: defaultEndDate)
-            |> feebackDetailsGroupByDate)
+        return ((startDate: defaultStartDate, endDate: defaultEndDate) |> feebackDetailsGroupByDate)
             .map(on: DispatchQueue.global(qos: .utility)) { response -> LineChartData in
-                guard response.count > 0 else {
+                guard !response.isEmpty else {
                     throw FeedbackDetailsDataError.noData
                 }
                 
-                return response.mapValues {
-                    return $0.map { item -> (Date, Double) in
-                        return (item.key, query(item.value))
-                        }.sorted(by: { (valueOne, valueSecond) -> Bool in
-                            return valueOne.0 < valueSecond.0
-                        })
-                    }.reduce([String: [ChartDataEntry]]()) { (res, item) -> [String: [ChartDataEntry]] in
-                        var result = res
-                        result[item.key] = item.value.reduce([ChartDataEntry]()) { (res, item) -> [ChartDataEntry] in
-                            var result = res
-                            result.append(ChartDataEntry(x: item.0.timeIntervalSince1970, y: item.1))
-                            
-                            return result
-                        }
-                        return result
-                    }
+                return response
+                    |> mapAndSortWithQuery
+                    |> self.reduceData(toChartDataEntry:)
                     |> self.createLineChartData
         }
     }
@@ -73,9 +61,9 @@ public class HomeScreenViewModel {
         return
             ((startDate: defaultStartDate, endDate: defaultEndDate)
                 |> (self.feedbackUsecase.getFeedbackDetails()
-                    |> self.usecase.feedbackDetailsFilterByDates(feedbackDetails:)))
+                    |> self.dataProcessingUsecase.feedbackDetailsFilterByDates(feedbackDetails:)))
                 .map{
-                    guard $0.count > 0 else {
+                    guard !$0.isEmpty else {
                         throw FeedbackDetailsDataError.noData
                     }
                     
@@ -92,6 +80,35 @@ public class HomeScreenViewModel {
     }
     
     //MARK: Private Function
+    private func mapAndSort(with query: @escaping ([FeedbackItem]) -> Double)
+        -> (_ data: [String : [Date : [FeedbackItem]]])
+        -> [String : [(Date, Double)]] {
+            return { (_ data: [String : [Date : [FeedbackItem]]])
+                -> [String : [(Date, Double)]] in
+                return data.mapValues {
+                    return $0.map { item -> (Date, Double) in
+                        return (item.key, query(item.value))
+                        }.sorted(by: { (valueOne, valueSecond) -> Bool in
+                            return valueOne.0 < valueSecond.0
+                        })
+                }
+            }
+    }
+    
+    private func reduceData(toChartDataEntry data: [String : [(Date, Double)]]) -> [String: [ChartDataEntry]] {
+        return data
+            .reduce([String: [ChartDataEntry]]()) { (res, item) -> [String: [ChartDataEntry]] in
+                var result = res
+                result[item.key] = item.value.reduce([ChartDataEntry]()) { (res, item) -> [ChartDataEntry] in
+                    var result = res
+                    result.append(ChartDataEntry(x: item.0.timeIntervalSince1970, y: item.1))
+                    
+                    return result
+                }
+                return result
+        }
+    }
+    
     private func getSplitFunction(forSplit splitCategory: DataCategory)
         -> (_ feedbackDetail: Promise<[FeedbackItem]>)
         -> ((startDate: Int64, endDate: Int64))
@@ -101,11 +118,11 @@ public class HomeScreenViewModel {
                 -> Promise<[String : [Date : [FeedbackItem]]]> in
                 switch splitCategory {
                 case .none:
-                    return self.usecase.feedbackDetailsGroupedByDates(feedbackDetails: feedbackDetail)
+                    return self.dataProcessingUsecase.feedbackDetailsGroupedByDates(feedbackDetails: feedbackDetail)
                 case .platform:
-                    return self.usecase.feedbackDetailsGroupedByPlatform(feedbackDetails: feedbackDetail)
+                    return self.dataProcessingUsecase.feedbackDetailsGroupedByPlatform(feedbackDetails: feedbackDetail)
                 case .browser:
-                    return self.usecase.feedbackDetailsGroupedByBrowser(feedbackDetails: feedbackDetail)
+                    return self.dataProcessingUsecase.feedbackDetailsGroupedByBrowser(feedbackDetails: feedbackDetail)
                 }
             }
     }

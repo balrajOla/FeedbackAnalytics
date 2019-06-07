@@ -9,7 +9,11 @@
 import Foundation
 import PromiseKit
 
-public struct FeedbackDetailsUsecase {
+protocol FeedbackDetailsUsecaseProtocol {
+    func getFeedbackDetails() -> Promise<[FeedbackItem]>
+}
+
+public struct FeedbackDetailsUsecase: FeedbackDetailsUsecaseProtocol {
     public init() {}
     
     public func getFeedbackDetails() -> Promise<[FeedbackItem]> {

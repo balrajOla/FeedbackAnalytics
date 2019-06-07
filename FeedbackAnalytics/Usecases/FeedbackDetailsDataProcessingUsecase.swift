@@ -9,7 +9,25 @@
 import Foundation
 import PromiseKit
 
-struct FeedbackDetailsDataProcessingUsecase {
+protocol FeedbackDetailsDataProcessingUsecaseProtocol {
+    func feedbackDetailsGroupedByPlatform(feedbackDetails: Promise<[FeedbackItem]>)
+        -> (_ between: (startDate: Int64, endDate: Int64))
+        -> Promise<[String: [Date : [FeedbackItem]]]>
+    
+    func feedbackDetailsGroupedByBrowser(feedbackDetails: Promise<[FeedbackItem]>)
+        -> (_ between: (startDate: Int64, endDate: Int64))
+        -> Promise<[String: [Date : [FeedbackItem]]]>
+    
+    func feedbackDetailsGroupedByDates(feedbackDetails: Promise<[FeedbackItem]>)
+    -> (_ between: (startDate: Int64, endDate: Int64))
+    -> Promise<[String: [Date : [FeedbackItem]]]>
+    
+    func feedbackDetailsFilterByDates(feedbackDetails: Promise<[FeedbackItem]>)
+        -> (_ between: (startDate: Int64, endDate: Int64))
+        -> Promise<[FeedbackItem]>
+}
+
+struct FeedbackDetailsDataProcessingUsecase: FeedbackDetailsDataProcessingUsecaseProtocol {
     public func feedbackDetailsGroupedByPlatform(feedbackDetails: Promise<[FeedbackItem]>)
         -> (_ between: (startDate: Int64, endDate: Int64))
         -> Promise<[String: [Date : [FeedbackItem]]]> {
