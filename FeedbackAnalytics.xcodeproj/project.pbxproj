@@ -40,6 +40,8 @@
 		A26282EE22AAA06000C73D82 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26282ED22AAA06000C73D82 /* RouterTest.swift */; };
 		A26282F022AAB11200C73D82 /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26282EF22AAB11200C73D82 /* ServiceTest.swift */; };
 		A26282F222AACB7000C73D82 /* FeedbackQueryUsecaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26282F122AACB7000C73D82 /* FeedbackQueryUsecaseTest.swift */; };
+		A26282F422AAED6700C73D82 /* HomeScreenViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26282F322AAED6700C73D82 /* HomeScreenViewModelTest.swift */; };
+		A26282F722AAEE1200C73D82 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26282F522AAEDFE00C73D82 /* XCTestCase+MemoryLeakTracking.swift */; };
 		A27B07DD2266EC3700377D07 /* LineChartViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07DC2266EC3700377D07 /* LineChartViewFormatter.swift */; };
 		A27B07DF2266F3D300377D07 /* HomeScreenViewController+Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07DE2266F3D300377D07 /* HomeScreenViewController+Charts.swift */; };
 		A27B07E12268661700377D07 /* ColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07E02268661700377D07 /* ColorGenerator.swift */; };
@@ -103,6 +105,8 @@
 		A26282ED22AAA06000C73D82 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		A26282EF22AAB11200C73D82 /* ServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTest.swift; sourceTree = "<group>"; };
 		A26282F122AACB7000C73D82 /* FeedbackQueryUsecaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackQueryUsecaseTest.swift; sourceTree = "<group>"; };
+		A26282F322AAED6700C73D82 /* HomeScreenViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModelTest.swift; sourceTree = "<group>"; };
+		A26282F522AAEDFE00C73D82 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		A27B07DC2266EC3700377D07 /* LineChartViewFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewFormatter.swift; sourceTree = "<group>"; };
 		A27B07DE2266F3D300377D07 /* HomeScreenViewController+Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewController+Charts.swift"; sourceTree = "<group>"; };
 		A27B07E02268661700377D07 /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				A2F3C0F32265A0CC00A824D6 /* Collection+Average.swift */,
 				A27B07E02268661700377D07 /* ColorGenerator.swift */,
 				A27B07E22268934200377D07 /* Double+RoundValue.swift */,
+				A26282F522AAEDFE00C73D82 /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				A2F3C0ED2264E94A00A824D6 /* HomeScreenViewModel.swift */,
+				A26282F322AAED6700C73D82 /* HomeScreenViewModelTest.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -548,10 +554,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A26282F422AAED6700C73D82 /* HomeScreenViewModelTest.swift in Sources */,
 				A26282EE22AAA06000C73D82 /* RouterTest.swift in Sources */,
 				A26282F222AACB7000C73D82 /* FeedbackQueryUsecaseTest.swift in Sources */,
 				A26282E422AA4E3D00C73D82 /* FeedbackAnalyticsUnitTests.swift in Sources */,
 				A26282F022AAB11200C73D82 /* ServiceTest.swift in Sources */,
+				A26282F722AAEE1200C73D82 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
