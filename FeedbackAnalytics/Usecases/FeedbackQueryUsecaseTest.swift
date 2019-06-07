@@ -27,6 +27,12 @@ class FeedbackQueryUsecaseTest: XCTestCase {
         } else {
             XCTAssert(false, "Groupby Platform should contain data for Windows Category")
         }
+        
+        if let macData = groupedData[platforMac] {
+            XCTAssertEqual(macData, macPlatformMockData, "Mac Mock data is not the same")
+        } else {
+            XCTAssert(false, "Groupby Platform should contain data for Mac Category")
+        }
     }
     
     // Generate feedback items for a specific platform
