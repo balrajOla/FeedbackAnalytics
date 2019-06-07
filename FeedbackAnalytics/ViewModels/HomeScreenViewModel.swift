@@ -136,7 +136,7 @@ public class HomeScreenViewModel {
     }
     private func createLineChartData (_ data: [String: [ChartDataEntry]]) -> LineChartData {
         return data.map { data -> LineChartDataSet in
-            let chartDataSet = LineChartDataSet(values: data.value, label: data.key)
+            let chartDataSet = LineChartDataSet(entries: data.value, label: data.key)
             chartDataSet.colors = [generateRandomColor()]
             chartDataSet.fillColor = generateRandomColor()
             chartDataSet.highlightEnabled = true
