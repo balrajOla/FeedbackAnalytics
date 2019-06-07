@@ -22,13 +22,15 @@ public enum DataCategory: String {
 
 public class HomeScreenViewModel {
     
+    // Dependencies
     private let feedbackUsecase: FeedbackDetailsUsecaseProtocol
     private let dataProcessingUsecase: FeedbackDetailsDataProcessingUsecaseProtocol
     
+    // Start and end date
     private var defaultStartDate: Int64 = 1388534400
     private var defaultEndDate: Int64 = 1391745497
-    private let defaultValue = 0
     
+    // categories by which data can be splitted by
     public let splitByList = [DataCategory.none.rawValue, DataCategory.platform.rawValue, DataCategory.browser.rawValue]
     
     init(dataProcessingUsecase: FeedbackDetailsDataProcessingUsecaseProtocol,
@@ -37,6 +39,7 @@ public class HomeScreenViewModel {
         self.feedbackUsecase = feedbackUsecase
     }
     
+    // func to get feedback details for a selected category and dates
     public func getFeedbackDetailsRatingPerDay(withLabel label: String,
                                                withSplitBy splitBy: DataCategory,
                                                with query: @escaping ([FeedbackItem]) -> Double) -> Promise<LineChartData> {
