@@ -10,7 +10,7 @@ import Foundation
 
 public extension Sequence {
   
-  public func groupBy<T: Hashable>(_ keyPath: KeyPath<Element, T>) -> [T: [Iterator.Element]] {
+    func groupBy<T: Hashable>(_ keyPath: KeyPath<Element, T>) -> [T: [Iterator.Element]] {
     var results = [T: Array<Iterator.Element>]()
     
     forEach {

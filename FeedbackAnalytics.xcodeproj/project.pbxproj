@@ -11,7 +11,7 @@
 		A242427D2261194500B08683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A242427C2261194500B08683 /* Assets.xcassets */; };
 		A242428D22611D0F00B08683 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A242428B22611D0F00B08683 /* HomeScreenViewController.swift */; };
 		A242428E22611D0F00B08683 /* HomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A242428C22611D0F00B08683 /* HomeScreenViewController.xib */; };
-		A24242A22261C5F300B08683 /* Service+RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A242429F2261C5F200B08683 /* Service+RequestHelper.swift */; };
+		A24242A22261C5F300B08683 /* Service+Error+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A242429F2261C5F200B08683 /* Service+Error+Decode.swift */; };
 		A24242A32261C5F300B08683 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242A02261C5F300B08683 /* Route.swift */; };
 		A24242A42261C5F300B08683 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242A12261C5F300B08683 /* ServerConfig.swift */; };
 		A24242A72261C5FF00B08683 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242A52261C5FE00B08683 /* Service.swift */; };
@@ -34,6 +34,7 @@
 		A24242FA22626F6300B08683 /* ReaderMonad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242F922626F6300B08683 /* ReaderMonad.swift */; };
 		A24242FE2263144800B08683 /* Sequence+Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242FD2263144700B08683 /* Sequence+Reader.swift */; };
 		A242430022633EE000B08683 /* FeedbackDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24242FF22633EE000B08683 /* FeedbackDetails.swift */; };
+		A26282DC22AA44FF00C73D82 /* HttClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26282DB22AA44FF00C73D82 /* HttClient.swift */; };
 		A27B07DD2266EC3700377D07 /* LineChartViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07DC2266EC3700377D07 /* LineChartViewFormatter.swift */; };
 		A27B07DF2266F3D300377D07 /* HomeScreenViewController+Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07DE2266F3D300377D07 /* HomeScreenViewController+Charts.swift */; };
 		A27B07E12268661700377D07 /* ColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07E02268661700377D07 /* ColorGenerator.swift */; };
@@ -57,7 +58,7 @@
 		A24242812261194500B08683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A242428B22611D0F00B08683 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		A242428C22611D0F00B08683 /* HomeScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenViewController.xib; sourceTree = "<group>"; };
-		A242429F2261C5F200B08683 /* Service+RequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Service+RequestHelper.swift"; sourceTree = "<group>"; };
+		A242429F2261C5F200B08683 /* Service+Error+Decode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Service+Error+Decode.swift"; sourceTree = "<group>"; };
 		A24242A02261C5F300B08683 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		A24242A12261C5F300B08683 /* ServerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		A24242A52261C5FE00B08683 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		A24242F922626F6300B08683 /* ReaderMonad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderMonad.swift; sourceTree = "<group>"; };
 		A24242FD2263144700B08683 /* Sequence+Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Reader.swift"; sourceTree = "<group>"; };
 		A24242FF22633EE000B08683 /* FeedbackDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetails.swift; sourceTree = "<group>"; };
+		A26282DB22AA44FF00C73D82 /* HttClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttClient.swift; sourceTree = "<group>"; };
 		A27B07DC2266EC3700377D07 /* LineChartViewFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewFormatter.swift; sourceTree = "<group>"; };
 		A27B07DE2266F3D300377D07 /* HomeScreenViewController+Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewController+Charts.swift"; sourceTree = "<group>"; };
 		A27B07E02268661700377D07 /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
@@ -172,8 +174,9 @@
 			children = (
 				A24242A02261C5F300B08683 /* Route.swift */,
 				A24242A12261C5F300B08683 /* ServerConfig.swift */,
-				A242429F2261C5F200B08683 /* Service+RequestHelper.swift */,
+				A242429F2261C5F200B08683 /* Service+Error+Decode.swift */,
 				A24242F3226256AA00B08683 /* Service+Cache.swift */,
+				A26282DB22AA44FF00C73D82 /* HttClient.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -411,7 +414,8 @@
 				A2F3C0F42265A0CC00A824D6 /* Collection+Average.swift in Sources */,
 				A2F3C0F222658FF200A824D6 /* HomeScreenViewModel+Query.swift in Sources */,
 				A242430022633EE000B08683 /* FeedbackDetails.swift in Sources */,
-				A24242A22261C5F300B08683 /* Service+RequestHelper.swift in Sources */,
+				A26282DC22AA44FF00C73D82 /* HttClient.swift in Sources */,
+				A24242A22261C5F300B08683 /* Service+Error+Decode.swift in Sources */,
 				A24242BB2261C69800B08683 /* PulseAnimation.swift in Sources */,
 				A24242B62261C69800B08683 /* ErrorHandler.swift in Sources */,
 				A2F3C0E922641B9E00A824D6 /* DateProtocol.swift in Sources */,

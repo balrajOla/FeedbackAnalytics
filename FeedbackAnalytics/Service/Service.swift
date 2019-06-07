@@ -9,18 +9,18 @@
 import Foundation
 import PromiseKit
 
-public struct Service: ServiceType {
-  public let serverConfig: ServerConfigType
-  
-  public init(serverConfig: ServerConfigType = ServerConfig.production) {
-    self.serverConfig = serverConfig
-  }
+struct Service: ServiceType {
+    let httpClient: HttpClientProtocol
+    
+    init(httpClient: HttpClientProtocol = HttClient(serverConfig: ServerConfig.production)) {
+        self.httpClient = httpClient
+    }
   
   public func fetchFeedbackDetails() -> Promise<FeedbackDetailsResponse> {
     return fetchFeedbackDetailsCache()
            .recover { _ -> Promise<FeedbackDetailsResponse> in
              return Route.getFeedbackDetailRequest
-                    |> self.request(route:)
+                    |> self.httpClient.request(route:)
                     |> self.decode(response:)
                     |> self.cache(response:)
           }

@@ -24,7 +24,7 @@ public class HomeScreenViewModel {
   
   private let feedbackUsecase = FeedbackDetailsUsecase()
   
-  private var defaultStartDate: Int64 = 1358402048
+  private var defaultStartDate: Int64 = 1388534400
   private var defaultEndDate: Int64 = 1391745497
   private let defaultValue = 0
   
