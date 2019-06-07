@@ -21,12 +21,12 @@ extension HomeScreenViewController: CalendarDateRangePickerViewControllerDelegat
   }
   
   func presentCalendarView() {
-    self.dateRangePickerViewController.map {
-      $0.selectedStartDate = viewModel.getBetweenDates().startDate
-      $0.selectedEndDate = viewModel.getBetweenDates().endDate
+    self.dateRangePickerViewController.map { [weak self] item in
+      item.selectedStartDate = viewModel.getBetweenDates().startDate
+      item.selectedEndDate = viewModel.getBetweenDates().endDate
       
-      let navigationController = UINavigationController(rootViewController: $0)
-      self.navigationController?.present(navigationController, animated: true, completion: nil)
+      let navigationController = UINavigationController(rootViewController: item)
+      self?.navigationController?.present(navigationController, animated: true, completion: nil)
     }
   }
   

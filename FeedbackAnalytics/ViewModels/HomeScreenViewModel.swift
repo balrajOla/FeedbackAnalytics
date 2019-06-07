@@ -48,9 +48,10 @@ public class HomeScreenViewModel {
         let mapAndSortWithQuery = self.mapAndSort(with: query)
         
         return ((startDate: defaultStartDate, endDate: defaultEndDate) |> feebackDetailsGroupByDate)
-            .map(on: DispatchQueue.global(qos: .utility)) { response -> LineChartData in
-                guard !response.isEmpty else {
-                    throw FeedbackDetailsDataError.noData
+            .map(on: DispatchQueue.global(qos: .utility)) {[weak self] response -> LineChartData in
+                guard !response.isEmpty,
+                    let self = self else {
+                        throw FeedbackDetailsDataError.noData
                 }
                 
                 return response
@@ -64,7 +65,7 @@ public class HomeScreenViewModel {
         return
             ((startDate: defaultStartDate, endDate: defaultEndDate)
                 |> (self.feedbackUsecase.getFeedbackDetails()
-                |> self.dataProcessingUsecase.feedbackDetailsFilterByDates(feedbackDetails:)))
+                    |> self.dataProcessingUsecase.feedbackDetailsFilterByDates(feedbackDetails:)))
                 |> self.calculateRatingAverage(forFeedbackDetails:)
     }
     
@@ -121,9 +122,16 @@ public class HomeScreenViewModel {
         -> (_ feedbackDetail: Promise<[FeedbackItem]>)
         -> ((startDate: Int64, endDate: Int64))
         -> Promise<[String : [Date : [FeedbackItem]]]> {
-            return { (feedbackDetail: Promise<[FeedbackItem]>)
+            return {[weak self] (feedbackDetail: Promise<[FeedbackItem]>)
                 -> ((startDate: Int64, endDate: Int64))
                 -> Promise<[String : [Date : [FeedbackItem]]]> in
+                guard let self = self else {
+                    return { (_ between: (startDate: Int64, endDate: Int64))
+                        -> Promise<[String: [Date : [FeedbackItem]]]> in
+                        return Promise<[String : [Date : [FeedbackItem]]]>(error: FeedbackDetailsDataError.noData)
+                    }
+                }
+                
                 switch splitCategory {
                 case .none:
                     return self.dataProcessingUsecase.feedbackDetailsGroupedByDates(feedbackDetails: feedbackDetail)

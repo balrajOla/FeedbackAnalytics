@@ -85,11 +85,11 @@ extension HomeScreenViewController {
     viewModel.getFeedbackDetailsRatingPerDay(withLabel: "Emotional trendline",
                                              withSplitBy: spiltBy,
                                              with: { value -> Double in (value.map { $0.rating }).average })
-      .done(on: DispatchQueue.main) { (result) in
-        self.lineChartView.data = result
-        self.lineChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
-      }.catch { _ in
-        self.lineChartView.data = nil
+      .done(on: DispatchQueue.main) {[weak self] (result) in
+        self?.lineChartView.data = result
+        self?.lineChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
+      }.catch {[weak self] _ in
+        self?.lineChartView.data = nil
       }
       .finally {
         DispatchQueue.main.async {
@@ -105,11 +105,11 @@ extension HomeScreenViewController {
     viewModel.getFeedbackDetailsRatingPerDay(withLabel: "Feedback items",
                                              withSplitBy: spiltBy,
                                              with: { value -> Double in Double(value.count) })
-      .done(on: DispatchQueue.main) { (result) in
-        self.lineChartRatingCountView.data = result
-        self.lineChartRatingCountView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
-      }.catch { _ in
-        self.lineChartRatingCountView.data = nil
+      .done(on: DispatchQueue.main) {[weak self] (result) in
+        self?.lineChartRatingCountView.data = result
+        self?.lineChartRatingCountView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
+      }.catch {[weak self] _ in
+        self?.lineChartRatingCountView.data = nil
       }
       .finally {
         DispatchQueue.main.async {
@@ -120,10 +120,10 @@ extension HomeScreenViewController {
   
   func setAverageRating() {
     viewModel.getAverageRatingForSelectedRange()
-      .done {
-        self.averageRatingLabel.text = "Average Rating: \($0)"
-      }.catch { _ in
-        self.averageRatingLabel.text = "Average Rating: NA"
+      .done {[weak self] item in
+        self?.averageRatingLabel.text = "Average Rating: \(item)"
+      }.catch {[weak self] _ in
+        self?.averageRatingLabel.text = "Average Rating: NA"
     }
   }
 }
