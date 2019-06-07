@@ -21,7 +21,7 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var lineChartView: LineChartView!
     let dropDown = DropDown()
     
-    public let viewModel = HomeScreenViewModel()
+    public let viewModel = HomeScreenViewModel(usecase: FeedbackDetailsDataProcessingUsecase())
     
     var dateRangePickerViewController: CalendarDateRangePickerViewController?
     

@@ -27,10 +27,13 @@ public class HomeScreenViewModel {
     private var defaultStartDate: Int64 = 1388534400
     private var defaultEndDate: Int64 = 1391745497
     private let defaultValue = 0
+    private let usecase: FeedbackDetailsDataProcessingUsecase
     
     public let splitByList = [DataCategory.none.rawValue, DataCategory.platform.rawValue, DataCategory.browser.rawValue]
     
-    
+    init(usecase: FeedbackDetailsDataProcessingUsecase) {
+        self.usecase = usecase
+    }
     
     public func getFeedbackDetailsRatingPerDay(withLabel label: String,
                                                withSplitBy splitBy: DataCategory,
@@ -70,7 +73,7 @@ public class HomeScreenViewModel {
         return
             ((startDate: defaultStartDate, endDate: defaultEndDate)
                 |> (self.feedbackUsecase.getFeedbackDetails()
-                    |> self.feedbackDetailsFilterByDates(feedbackDetails:)))
+                    |> self.usecase.feedbackDetailsFilterByDates(feedbackDetails:)))
                 .map{
                     guard $0.count > 0 else {
                         throw FeedbackDetailsDataError.noData
@@ -98,11 +101,11 @@ public class HomeScreenViewModel {
                 -> Promise<[String : [Date : [FeedbackItem]]]> in
                 switch splitCategory {
                 case .none:
-                    return self.feedbackDetailsGroupedByDates(feedbackDetails: feedbackDetail)
+                    return self.usecase.feedbackDetailsGroupedByDates(feedbackDetails: feedbackDetail)
                 case .platform:
-                    return self.feedbackDetailsGroupedByPlatform(feedbackDetails: feedbackDetail)
+                    return self.usecase.feedbackDetailsGroupedByPlatform(feedbackDetails: feedbackDetail)
                 case .browser:
-                    return self.feedbackDetailsGroupedByBrowser(feedbackDetails: feedbackDetail)
+                    return self.usecase.feedbackDetailsGroupedByBrowser(feedbackDetails: feedbackDetail)
                 }
             }
     }
