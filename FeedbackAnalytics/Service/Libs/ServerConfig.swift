@@ -33,7 +33,7 @@ public struct ServerConfig: ServerConfigType {
 public enum Secrets {
   public enum Api {
     public enum Endpoint {
-      public static let production = "cache.usabilla.com"
+      public static let production = "gist.githubusercontent.com/balrajOla"
     }
   }
 }

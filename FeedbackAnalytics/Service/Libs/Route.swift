@@ -19,7 +19,7 @@ internal enum Route {
     (method: HTTPMethod, path: String, query: [String: Any]) {
     switch self {
     case .getFeedbackDetailRequest:
-      return (HTTPMethod.get, "/example/apidemo.json", [String: Any]())
+      return (HTTPMethod.get, "/656eb85b5dca64bb640b9df841f691e3/raw/6f3e36c027687f4fd2bf3ab85de1d6e5faed8094/sample.json", [String: Any]())
     }
   }
 }
