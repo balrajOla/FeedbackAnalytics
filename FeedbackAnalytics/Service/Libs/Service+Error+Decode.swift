@@ -11,14 +11,14 @@ import PromiseKit
 import Alamofire
 
 enum ServiceError: Error {
-  case urlInvalid
-  case parsingIssue
-  case noInternet
-  case selfDeinit
+    case urlInvalid
+    case parsingIssue
+    case noInternet
+    case selfDeinit
 }
 
 extension Service {
-  public func decode<T: Decodable>(response: Promise<Data>) -> Promise<T> {
-    return response.compactMap(on: DispatchQueue.global(qos: .utility)) { try JSONDecoder().decode(T.self, from: $0) }
-  }
+    public func decode<T: Decodable>(response: Promise<Data>) -> Promise<T> {
+        return response.compactMap(on: DispatchQueue.global(qos: .utility)) { try JSONDecoder().decode(T.self, from: $0) }
+    }
 }

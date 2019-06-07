@@ -8,15 +8,15 @@
 
 import Foundation
 public protocol DateProtocol {
-  var date: Date { get }
-  func addingTimeInterval(_: TimeInterval) -> Self
-  init()
-  init(timeIntervalSince1970: TimeInterval)
-  var timeIntervalSince1970: TimeInterval { get }
+    var date: Date { get }
+    func addingTimeInterval(_: TimeInterval) -> Self
+    init()
+    init(timeIntervalSince1970: TimeInterval)
+    var timeIntervalSince1970: TimeInterval { get }
 }
 
 extension Date: DateProtocol {
-  public var date: Date {
-    return self
-  }
+    public var date: Date {
+        return self
+    }
 }

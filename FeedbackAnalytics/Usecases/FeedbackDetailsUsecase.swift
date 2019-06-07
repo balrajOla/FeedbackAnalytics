@@ -10,12 +10,12 @@ import Foundation
 import PromiseKit
 
 public struct FeedbackDetailsUsecase {
-  public init() {}
-  
-  public func getFeedbackDetails() -> Promise<[FeedbackItem]> {
-    return AppEnvironment.current.apiService.fetchFeedbackDetails()
-      .map(on: DispatchQueue.global(qos: .utility)) { (response: FeedbackDetailsResponse) -> [FeedbackItem] in
-        return response.items.map { FeedbackItem(item: $0) }
+    public init() {}
+    
+    public func getFeedbackDetails() -> Promise<[FeedbackItem]> {
+        return AppEnvironment.current.apiService.fetchFeedbackDetails()
+            .map(on: DispatchQueue.global(qos: .utility)) { (response: FeedbackDetailsResponse) -> [FeedbackItem] in
+                return response.items.map { FeedbackItem(item: $0) }
+        }
     }
-  }
 }

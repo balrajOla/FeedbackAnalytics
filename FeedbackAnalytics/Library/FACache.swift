@@ -9,31 +9,31 @@
 import Foundation
 
 public enum FACacheError: Error {
-  case noValueFound
+    case noValueFound
 }
 
 public final class FACache {
-  private let cache = NSCache<NSString, AnyObject>()
-  
-  public static let fa_feedbackDetailsResponse = "FeedbackDetailsResponse"
-  
-  public init() {
-  }
-  
-  public subscript(key: String) -> Any? {
-    get {
-      return self.cache.object(forKey: key as NSString)
+    private let cache = NSCache<NSString, AnyObject>()
+    
+    public static let fa_feedbackDetailsResponse = "FeedbackDetailsResponse"
+    
+    public init() {
     }
-    set {
-      if let newValue = newValue {
-        self.cache.setObject(newValue as AnyObject, forKey: key as NSString)
-      } else {
-        self.cache.removeObject(forKey: key as NSString)
-      }
+    
+    public subscript(key: String) -> Any? {
+        get {
+            return self.cache.object(forKey: key as NSString)
+        }
+        set {
+            if let newValue = newValue {
+                self.cache.setObject(newValue as AnyObject, forKey: key as NSString)
+            } else {
+                self.cache.removeObject(forKey: key as NSString)
+            }
+        }
     }
-  }
-  
-  public func removeAllObjects() {
-    self.cache.removeAllObjects()
-  }
+    
+    public func removeAllObjects() {
+        self.cache.removeAllObjects()
+    }
 }

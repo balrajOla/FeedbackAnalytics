@@ -11,13 +11,13 @@ import Foundation
 protocol DictionaryCodable: Codable {}
 
 extension DictionaryCodable {
-  func dictionary() -> [String: Any]? {
-    let encoder = JSONEncoder()
-    encoder.dateEncodingStrategy = .millisecondsSince1970
-    guard let json = try? encoder.encode(self),
-      let dict = try? JSONSerialization.jsonObject(with: json, options: []) as? [String: Any] else {
-        return nil
+    func dictionary() -> [String: Any]? {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .millisecondsSince1970
+        guard let json = try? encoder.encode(self),
+            let dict = try? JSONSerialization.jsonObject(with: json, options: []) as? [String: Any] else {
+                return nil
+        }
+        return dict
     }
-    return dict
-  }
 }

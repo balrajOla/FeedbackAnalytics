@@ -12,13 +12,13 @@ import Foundation
  A global stack that captures the current state of global objects that the app wants access to.
  */
 struct AppEnvironment {
-  /**
-   A global stack of environments.
-   */
-  fileprivate static var stack: [Environment] = [Environment()]
-  
-  // The most recent environment on the stack.
-  static var current: Environment! {
-    return stack.last
-  }
+    /**
+     A global stack of environments.
+     */
+    fileprivate static var stack: [Environment] = [Environment()]
+    
+    // The most recent environment on the stack.
+    static var current: Environment! {
+        return stack.last
+    }
 }

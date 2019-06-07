@@ -10,10 +10,10 @@ import Foundation
 import Charts
 
 class LineChartViewFormatter:IAxisValueFormatter  {
-  func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-    let dateFormatterPrint = DateFormatter()
-    dateFormatterPrint.dateFormat = "MMM d"
-    
-    return dateFormatterPrint.string(from: Date.init(timeIntervalSince1970: TimeInterval(value)))
-  }
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM d"
+        
+        return dateFormatterPrint.string(from: Date.init(timeIntervalSince1970: TimeInterval(value)))
+    }
 }

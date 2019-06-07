@@ -12,25 +12,25 @@ import Foundation
  A collection of **all** global variables and singletons that the app wants access to.
  */
 struct Environment {
-  /// A type that exposes endpoints for fetching FeedbackAnalytics data.
-  let apiService: ServiceType
-  
-  /// A type that stored cached data
-  let cache: FACache
-  
-  /// A type that exposes how to capture dates as measured from # of seconds since 1970.
-  let dateType: DateProtocol.Type
-  
-  /// The user's calendar.
-  let calendar: Calendar
-  
-  init(apiService: ServiceType = Service(),
-              cache: FACache = FACache(),
-              dateType: DateProtocol.Type = Date.self,
-              calendar: Calendar = .current) {
-    self.apiService = apiService
-    self.cache = cache
-    self.dateType = dateType
-    self.calendar = calendar
-  }
+    /// A type that exposes endpoints for fetching FeedbackAnalytics data.
+    let apiService: ServiceType
+    
+    /// A type that stored cached data
+    let cache: FACache
+    
+    /// A type that exposes how to capture dates as measured from # of seconds since 1970.
+    let dateType: DateProtocol.Type
+    
+    /// The user's calendar.
+    let calendar: Calendar
+    
+    init(apiService: ServiceType = Service(),
+         cache: FACache = FACache(),
+         dateType: DateProtocol.Type = Date.self,
+         calendar: Calendar = .current) {
+        self.apiService = apiService
+        self.cache = cache
+        self.dateType = dateType
+        self.calendar = calendar
+    }
 }

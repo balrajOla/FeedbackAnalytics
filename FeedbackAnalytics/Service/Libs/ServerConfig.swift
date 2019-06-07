@@ -12,28 +12,28 @@ import Foundation
  A type that knows the location of a FeedbackAnalytics API.
  */
 public protocol ServerConfigType {
-  var apiBaseUrl: URL { get }
-  var environment: EnvironmentType { get }
+    var apiBaseUrl: URL { get }
+    var environment: EnvironmentType { get }
 }
 
 public enum EnvironmentType: String {
-  case production = "Production"
+    case production = "Production"
 }
 
 public struct ServerConfig: ServerConfigType {
-  public fileprivate(set) var apiBaseUrl: URL
-  public fileprivate(set) var environment: EnvironmentType
-  
-  public static let production: ServerConfigType = ServerConfig(
-    apiBaseUrl: URL(string: "http://\(Secrets.Api.Endpoint.production)")!,
-    environment: EnvironmentType.production
-  )
+    public fileprivate(set) var apiBaseUrl: URL
+    public fileprivate(set) var environment: EnvironmentType
+    
+    public static let production: ServerConfigType = ServerConfig(
+        apiBaseUrl: URL(string: "http://\(Secrets.Api.Endpoint.production)")!,
+        environment: EnvironmentType.production
+    )
 }
 
 public enum Secrets {
-  public enum Api {
-    public enum Endpoint {
-      public static let production = "gist.githubusercontent.com/balrajOla"
+    public enum Api {
+        public enum Endpoint {
+            public static let production = "gist.githubusercontent.com/balrajOla"
+        }
     }
-  }
 }

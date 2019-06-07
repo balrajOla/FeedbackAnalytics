@@ -15,14 +15,14 @@ struct Service: ServiceType {
     init(httpClient: HttpClientProtocol = HttClient(serverConfig: ServerConfig.production)) {
         self.httpClient = httpClient
     }
-  
-  public func fetchFeedbackDetails() -> Promise<FeedbackDetailsResponse> {
-    return fetchFeedbackDetailsCache()
-           .recover { _ -> Promise<FeedbackDetailsResponse> in
-             return Route.getFeedbackDetailRequest
+    
+    public func fetchFeedbackDetails() -> Promise<FeedbackDetailsResponse> {
+        return fetchFeedbackDetailsCache()
+            .recover { _ -> Promise<FeedbackDetailsResponse> in
+                return Route.getFeedbackDetailRequest
                     |> self.httpClient.request(route:)
                     |> self.decode(response:)
                     |> self.cache(response:)
-          }
-  }
+        }
+    }
 }

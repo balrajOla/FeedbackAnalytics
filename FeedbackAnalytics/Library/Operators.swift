@@ -9,15 +9,15 @@
 import Foundation
 
 precedencegroup RightApplyPrecedence {
-  associativity: right
-  higherThan: AssignmentPrecedence
-  lowerThan: TernaryPrecedence
+    associativity: right
+    higherThan: AssignmentPrecedence
+    lowerThan: TernaryPrecedence
 }
 
 precedencegroup LeftApplyPrecedence {
-  associativity: left
-  higherThan: AssignmentPrecedence
-  lowerThan: TernaryPrecedence
+    associativity: left
+    higherThan: AssignmentPrecedence
+    lowerThan: TernaryPrecedence
 }
 
 /// Pipe Backward | Applies the function to its left to an argument on its right.
@@ -27,9 +27,9 @@ infix operator <| : RightApplyPrecedence
 infix operator |> : LeftApplyPrecedence
 
 public func <| <A, B> (f: (A) -> B, a: A) -> B {
-  return f(a)
+    return f(a)
 }
 
 public func |> <A, B> (a: A, f: (A) -> B) -> B {
-  return f(a)
+    return f(a)
 }

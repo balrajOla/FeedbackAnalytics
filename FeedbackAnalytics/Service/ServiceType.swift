@@ -10,5 +10,5 @@ import Foundation
 import PromiseKit
 
 public protocol ServiceType {
-  func fetchFeedbackDetails() -> Promise<FeedbackDetailsResponse>
+    func fetchFeedbackDetails() -> Promise<FeedbackDetailsResponse>
 }
