@@ -61,13 +61,8 @@ public class HomeScreenViewModel {
         return
             ((startDate: defaultStartDate, endDate: defaultEndDate)
                 |> (self.feedbackUsecase.getFeedbackDetails()
-                    |> self.dataProcessingUsecase.feedbackDetailsFilterByDates(feedbackDetails:)))
-                .map{
-                    guard !$0.isEmpty else {
-                        throw FeedbackDetailsDataError.noData
-                    }
-                    
-                    return ($0.map{ $0.rating }).average }
+                |> self.dataProcessingUsecase.feedbackDetailsFilterByDates(feedbackDetails:)))
+                |> self.calculateRatingAverage(forFeedbackDetails:)
     }
     
     public func getBetweenDates() -> (startDate: Date, endDate: Date) {
@@ -80,6 +75,16 @@ public class HomeScreenViewModel {
     }
     
     //MARK: Private Function
+    private func calculateRatingAverage(forFeedbackDetails data: Promise<[FeedbackItem]>) -> Promise<Double> {
+        return data.map {
+            guard !$0.isEmpty else {
+                throw FeedbackDetailsDataError.noData
+            }
+            
+            return ($0.map{ $0.rating }).average
+        }
+    }
+    
     private func mapAndSort(with query: @escaping ([FeedbackItem]) -> Double)
         -> (_ data: [String : [Date : [FeedbackItem]]])
         -> [String : [(Date, Double)]] {
