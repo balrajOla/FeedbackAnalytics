@@ -18,7 +18,7 @@ enum ServiceError: Error {
 }
 
 extension Service {
-    public func decode<T: Decodable>(response: Promise<Data>) -> Promise<T> {
+    func decode<T: Decodable>(response: Promise<Data>) -> Promise<T> {
         return response.compactMap(on: DispatchQueue.global(qos: .utility)) { try JSONDecoder().decode(T.self, from: $0) }
     }
 }

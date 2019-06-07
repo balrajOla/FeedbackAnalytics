@@ -7,8 +7,8 @@
 //
 
 import XCTest
-@testable import FeedbackAnalytics
 import Alamofire
+@testable import FeedbackAnalytics
 
 class RouterTest: XCTestCase {
     func test_Route_GetFeedbackDetailsRequest() {

@@ -1,5 +1,5 @@
 //
-//  Service+Cache.swift
+//  FeedbackDetailsCache.swift
 //  FeedbackAnalytics
 //
 //  Created by Balraj Singh on 06/06/19.
@@ -9,8 +9,13 @@
 import Foundation
 import PromiseKit
 
-extension Service {
-    public func fetchFeedbackDetailsCache() -> Promise<FeedbackDetailsResponse> {
+protocol FeedbackDetailsCacheProtocol {
+    func fetchFeedbackDetailsCache() -> Promise<FeedbackDetailsResponse>
+    func cache<T>(response: Promise<T>) -> Promise<T>
+}
+
+struct FeedbackDetailsCache: FeedbackDetailsCacheProtocol {
+    func fetchFeedbackDetailsCache() -> Promise<FeedbackDetailsResponse> {
         return DispatchQueue
             .global(qos: .utility)
             .async(PMKNamespacer.promise) { () throws -> FeedbackDetailsResponse in
@@ -22,7 +27,7 @@ extension Service {
         }
     }
     
-    public func cache<T>(response: Promise<T>) -> Promise<T> {
+    func cache<T>(response: Promise<T>) -> Promise<T> {
         return response.tap(on: DispatchQueue.global(qos: .utility)) {
             _  = $0.map { AppEnvironment.current.cache[FACache.fa_feedbackDetailsResponse] = $0 }
         }
