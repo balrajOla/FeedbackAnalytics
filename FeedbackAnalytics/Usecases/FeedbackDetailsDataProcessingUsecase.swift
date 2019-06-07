@@ -19,8 +19,8 @@ protocol FeedbackDetailsDataProcessingUsecaseProtocol {
         -> Promise<[String: [Date : [FeedbackItem]]]>
     
     func feedbackDetailsGroupedByDates(feedbackDetails: Promise<[FeedbackItem]>)
-    -> (_ between: (startDate: Int64, endDate: Int64))
-    -> Promise<[String: [Date : [FeedbackItem]]]>
+        -> (_ between: (startDate: Int64, endDate: Int64))
+        -> Promise<[String: [Date : [FeedbackItem]]]>
     
     func feedbackDetailsFilterByDates(feedbackDetails: Promise<[FeedbackItem]>)
         -> (_ between: (startDate: Int64, endDate: Int64))
@@ -85,5 +85,5 @@ struct FeedbackDetailsDataProcessingUsecase: FeedbackDetailsDataProcessingUsecas
                 }
             }
     }
-
+    
 }

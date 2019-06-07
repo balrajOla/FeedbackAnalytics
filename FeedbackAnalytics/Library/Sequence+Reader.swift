@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Generic groupby func over sequence
 public extension Sequence {
     
     func groupBy<T: Hashable>(_ keyPath: KeyPath<Element, T>) -> [T: [Iterator.Element]] {
@@ -29,18 +30,21 @@ public extension Sequence {
     }
 }
 
+// generic func for sort with return type as Reader Monad
 public func sort<T>(by sortFn: @escaping (T, T) -> Bool) -> Reader<[T], [T]> {
     return Reader { value in
         return value.sorted(by: sortFn)
     }
 }
 
+// generic func for filter with return type as Reader Monad
 public func filter<T>(isIncluded predicate: @escaping (T) -> Bool) -> Reader<[T], [T]> {
     return Reader { value in
         return value.filter(predicate)
     }
 }
 
+// generic func for groupBy with return type as Reader Monad
 public func groupBy<T, R: Hashable>(_ keyPath: KeyPath<T, R>) -> Reader<[T], [R: [T]]> {
     return Reader { value in
         return value.groupBy(keyPath)

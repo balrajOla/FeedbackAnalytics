@@ -16,6 +16,7 @@ struct Service: ServiceType {
         self.httpClient = httpClient
     }
     
+    // method to get the feedback details and cache the value 
     public func fetchFeedbackDetails() -> Promise<FeedbackDetailsResponse> {
         return fetchFeedbackDetailsCache()
             .recover { _ -> Promise<FeedbackDetailsResponse> in

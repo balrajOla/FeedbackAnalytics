@@ -16,6 +16,7 @@ protocol FeedbackDetailsUsecaseProtocol {
 public struct FeedbackDetailsUsecase: FeedbackDetailsUsecaseProtocol {
     public init() {}
     
+    // get the feedback data from Service layer
     public func getFeedbackDetails() -> Promise<[FeedbackItem]> {
         return AppEnvironment.current.apiService.fetchFeedbackDetails()
             .map(on: DispatchQueue.global(qos: .utility)) { (response: FeedbackDetailsResponse) -> [FeedbackItem] in
