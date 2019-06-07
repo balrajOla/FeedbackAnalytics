@@ -39,6 +39,7 @@
 		A26282EC22AA4FDE00C73D82 /* FeedbackDetailsDataProcessingUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26282EB22AA4FDE00C73D82 /* FeedbackDetailsDataProcessingUsecase.swift */; };
 		A26282EE22AAA06000C73D82 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26282ED22AAA06000C73D82 /* RouterTest.swift */; };
 		A26282F022AAB11200C73D82 /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26282EF22AAB11200C73D82 /* ServiceTest.swift */; };
+		A26282F222AACB7000C73D82 /* FeedbackQueryUsecaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26282F122AACB7000C73D82 /* FeedbackQueryUsecaseTest.swift */; };
 		A27B07DD2266EC3700377D07 /* LineChartViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07DC2266EC3700377D07 /* LineChartViewFormatter.swift */; };
 		A27B07DF2266F3D300377D07 /* HomeScreenViewController+Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07DE2266F3D300377D07 /* HomeScreenViewController+Charts.swift */; };
 		A27B07E12268661700377D07 /* ColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B07E02268661700377D07 /* ColorGenerator.swift */; };
@@ -101,6 +102,7 @@
 		A26282EB22AA4FDE00C73D82 /* FeedbackDetailsDataProcessingUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailsDataProcessingUsecase.swift; sourceTree = "<group>"; };
 		A26282ED22AAA06000C73D82 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		A26282EF22AAB11200C73D82 /* ServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTest.swift; sourceTree = "<group>"; };
+		A26282F122AACB7000C73D82 /* FeedbackQueryUsecaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackQueryUsecaseTest.swift; sourceTree = "<group>"; };
 		A27B07DC2266EC3700377D07 /* LineChartViewFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewFormatter.swift; sourceTree = "<group>"; };
 		A27B07DE2266F3D300377D07 /* HomeScreenViewController+Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenViewController+Charts.swift"; sourceTree = "<group>"; };
 		A27B07E02268661700377D07 /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				A24242F6226258B400B08683 /* FeedbackDetailsUsecase.swift */,
 				A2F3C0E222639ACF00A824D6 /* FeedbackQuery.swift */,
 				A26282EB22AA4FDE00C73D82 /* FeedbackDetailsDataProcessingUsecase.swift */,
+				A26282F122AACB7000C73D82 /* FeedbackQueryUsecaseTest.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A26282EE22AAA06000C73D82 /* RouterTest.swift in Sources */,
+				A26282F222AACB7000C73D82 /* FeedbackQueryUsecaseTest.swift in Sources */,
 				A26282E422AA4E3D00C73D82 /* FeedbackAnalyticsUnitTests.swift in Sources */,
 				A26282F022AAB11200C73D82 /* ServiceTest.swift in Sources */,
 			);

@@ -12,7 +12,7 @@ import PromiseKit
 
 class ServiceTest: XCTestCase {
     
-    func testExample() {
+    func test_Service_GetFeedbackDetailsRequest() {
         let mockHttpClient = HttpClientMock()
         let mockCache = CacheWithMissScenario()
         let service = Service(httpClient: mockHttpClient, cache: mockCache)

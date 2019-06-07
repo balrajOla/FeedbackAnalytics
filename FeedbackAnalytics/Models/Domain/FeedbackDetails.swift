@@ -29,6 +29,16 @@ public struct FeedbackItem {
         self.createdDate = AppEnvironment.current.calendar.date(bySettingHour: 0, minute: 0, second: 0, of: Date(timeIntervalSince1970: TimeInterval(item.creationDate))) ?? AppEnvironment.current.dateType.init().date
     }
     
+    public init(browser: String, version: Float, platform: String, geoLocation: (lat: Double, lng: Double, city: String?), rating: Int, labels: [String], createdDate: Date) {
+        self.browser = browser
+        self.version = version
+        self.platform = platform
+        self.geoLocation = geoLocation
+        self.rating = rating
+        self.labels = labels
+        self.createdDate = createdDate
+    }
+    
     private let joinAllWindowsPlatformVersion = { (platform: String) -> String in
         return (platform.lowercased().starts(with: "win") ? "Windows" : platform)
     }
